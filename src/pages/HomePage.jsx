@@ -20,14 +20,13 @@ export default function HomePage() {
         <HeroSection />
       </div>
       {/* Hero Content — normal flow, overlay di atas hero bg, hilang saat di-scroll */}
-      <div className="-mt-[130vh] mb-[25vh] h-screen relative z-[5] flex items-end pointer-events-none">
+      <div className="-mt-[115vh] mb-[15vh] h-screen relative z-[5] flex items-end pointer-events-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 w-full pointer-events-auto">
-          <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-xl">
+          <h1 className="text-white text-7xl md:text-6xl lg:text-7xl font-thin tracking-widest leading-tight max-w-xl">
             Excellence in Every Legal Step
           </h1>
           <p className="text-white/80 mt-4 max-w-lg text-base md:text-lg">
-            A modern and sophisticated website representing a professional law firm with strong
-            credibility
+            Showcasing services such as litigation, business contracts, dispute resolution, and professional consultation.
           </p>
           <Button variant="outline-white" className="mt-6">
             Learn more

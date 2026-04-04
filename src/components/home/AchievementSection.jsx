@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Autoplay } from 'swiper/modules'
+import { Autoplay } from 'swiper/modules'
 import { ArrowRight } from 'lucide-react'
 import 'swiper/css'
 
@@ -12,21 +12,23 @@ const TEXT_W = 280
 const IMG_W = 420
 
 export default function AchievementSection() {
-  const prevRef = useRef(null)
-  const nextRef = useRef(null)
   const swiperRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
-  // After React re-renders with new slide widths, tell Swiper to recalculate
-  useEffect(() => {
+  const handlePrev = () => {
     if (!swiperRef.current) return
-    requestAnimationFrame(() => {
-      swiperRef.current?.update()
-    })
-  }, [activeIndex])
+    swiperRef.current.slidePrev()
+    swiperRef.current.autoplay.start()
+  }
+
+  const handleNext = () => {
+    if (!swiperRef.current) return
+    swiperRef.current.slideNext()
+    swiperRef.current.autoplay.start()
+  }
 
   return (
-    <section className="ml-[20%] py-16 md:py-20 overflow-hidden bg-white">
+    <section className="ml-[10%] py-16 md:py-20 overflow-hidden bg-white">
       {/* Header inside max-width container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         <div className="flex items-end justify-between">
@@ -34,29 +36,31 @@ export default function AchievementSection() {
             <SectionLabel />
             <h2 className="text-3xl md:text-4xl font-bold text-primary">Achievement</h2>
           </div>
-          <div className="flex gap-2">
-            <ArrowButton direction="left" ref={prevRef} />
-            <ArrowButton direction="right" ref={nextRef} />
+          <div className="flex gap-1">
+            <ArrowButton direction="left" onClick={handlePrev} />
+            <ArrowButton direction="right" onClick={handleNext} />
           </div>
         </div>
       </div>
 
       {/* Carousel — extends beyond container edges (bleed effect) */}
       <Swiper
-        onSwiper={(s) => { swiperRef.current = s }}
-        modules={[Navigation, Autoplay]}
+        onSwiper={(s) => {
+          swiperRef.current = s
+          setActiveIndex(s.realIndex) // sync initial active index
+        }}
+        modules={[Autoplay]}
         slidesPerView="auto"
         centeredSlides
         spaceBetween={8}
-        speed={500}
-        rewind
+        speed={600}
+        loop
+        loopAdditionalSlides={2}
+        initialSlide={0}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
-        onSlideChange={(s) => setActiveIndex(s.realIndex)}
-        onInit={(s) => {
-          s.params.navigation.prevEl = prevRef.current
-          s.params.navigation.nextEl = nextRef.current
-          s.navigation.init()
-          s.navigation.update()
+        onSlideChangeTransitionEnd={(s) => {
+          setActiveIndex(s.realIndex)
+          s.update()
         }}
         style={{ overflow: 'visible' }}
       >
