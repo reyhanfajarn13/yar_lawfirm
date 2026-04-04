@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
+import CTASection from '../components/home/CTASection'
 
 export default function PracticeAreaDetailPage() {
   const { slug } = useParams()
@@ -14,7 +15,10 @@ export default function PracticeAreaDetailPage() {
           <p className="text-muted mt-2">Slug: {slug}</p>
         </div>
       </main>
-      <Footer />
+      <div className="bg-dark">
+        <CTASection />
+        <Footer />
+      </div>
     </>
   )
 }

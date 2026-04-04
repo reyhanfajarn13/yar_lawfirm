@@ -27,12 +27,12 @@ export default function AttorneysJoinOurTeamSection() {
           </h2>
 
           <div className="mt-6 grid grid-cols-1 lg:grid-cols-[0.72fr_1fr] gap-6 md:gap-8 items-start">
-            <div className="overflow-hidden bg-[#202227] p-2">
-              <div className="relative h-[220px] md:h-[280px]">
+            <div className="overflow-hidden">
+              <div className="relative w-full h-[16rem] sm:h-[18rem] lg:h-[18rem]">
                 <img
                   src={JOIN_TEAM_IMAGE.src}
                   alt={JOIN_TEAM_IMAGE.alt}
-                  className="h-full w-full"
+                  className="h-full w-full object-cover"
                   loading="lazy"
                 />
               </div>

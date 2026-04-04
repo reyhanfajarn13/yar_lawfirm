@@ -57,7 +57,7 @@ export default function Navbar() {
                       : 'border-b-2 border-[#8B0000] text-primary'
                     : scrolled
                       ? 'text-secondary hover:text-primary'
-                      : 'text-primary hover:text-white'
+                      : 'text-primary hover:text-white hover:border-b-2 border-[#8B0000]'
                 }`}
               >
                 {link.label}
