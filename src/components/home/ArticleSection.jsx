@@ -27,10 +27,10 @@ function ArticleCopy({ article, dark = false }) {
   return (
     <>
       <ArticleMeta date={article.date} category={article.category} dark={dark} />
-      <h3 className={`mt-5 text-[1.85rem] md:text-[2.35rem] font-medium leading-[1.15] ${titleClass}`}>
+      <h3 className={`mt-5 text-[1.25rem] md:text-[1.8rem] font-medium leading-[1.15] ${titleClass}`}>
         {article.title}
       </h3>
-      <p className={`mt-6 text-[1.05rem] leading-relaxed ${bodyClass}`}>
+      <p className={`mt-6 text-[1.0rem] leading-relaxed ${bodyClass}`}>
         {truncateExcerpt(article.excerpt)}
       </p>
     </>

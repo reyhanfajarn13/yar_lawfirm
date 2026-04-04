@@ -6,6 +6,7 @@ import PracticeAreaDetailPage from './pages/PracticeAreaDetailPage'
 import AttorneysPage from './pages/AttorneysPage'
 import AttorneyDetailPage from './pages/AttorneyDetailPage'
 import BlogPage from './pages/BlogPage'
+import FloatingWhatsAppButton from './components/ui/FloatingWhatsAppButton'
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/attorneys/:slug" element={<AttorneyDetailPage />} />
         <Route path="/blog" element={<BlogPage />} />
       </Routes>
+      <FloatingWhatsAppButton />
     </BrowserRouter>
   )
 }

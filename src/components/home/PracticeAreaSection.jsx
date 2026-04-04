@@ -9,8 +9,8 @@ export default function PracticeAreaSection() {
     <section className="py-16 md:py-20 bg-[#303030]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionLabel />
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Our Practice Areas</h2>
-        <p className="text-white max-w-3xl mb-12">
+        <h2 className="text-3xl md:text-4xl font-light text-white mb-3">Our Practice Areas</h2>
+        <p className="text-white max-w-2xl mb-12">
           Lorem ipsum dolor sit amet consectetur. Dignissim placerat lorem vestibulum volutpat lacus
           aenean. Tortor neque a praesent ullamcorper. Egestas aliquam fusce scelerisque dictum
           ridiculus non imperdiet felis mauris.

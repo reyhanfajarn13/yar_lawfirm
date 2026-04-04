@@ -11,14 +11,17 @@ export default function AttorneySection() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-56 bg-[#2f3134]" />
-
-      <div className="relative max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-[1320px] mx-auto py-15 px-4 sm:px-6 lg:px-8">
         <div className="relative bg-[#f1f2f3] px-5 py-8 md:px-10 md:py-10 after:pointer-events-none after:absolute after:bottom-0 after:left-full after:top-0 after:w-screen after:bg-[#f1f2f3]">
           <div className="mb-8 flex items-center justify-between md:mb-10">
-            <h2 className="text-4xl font-light leading-tight text-[#2e3239] md:text-[3.15rem]">
-              Our Expert Attorney
-            </h2>
+            <div>
+              <h2 className="text-2xl font-light leading-tight text-[#2e3239] md:text-[2.0rem]">
+                Meet Our Team
+              </h2>
+              <div className="mt-3 text-[#373d45] text-[1.05rem] leading-relaxed">
+                <p>Our experienced attorneys are ready to help you</p>
+              </div>
+            </div>
 
             <div className="flex gap-3">
               <button
