@@ -1,19 +1,48 @@
-import { useState, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import { ArrowRight } from 'lucide-react'
 import 'swiper/css'
 
-import SectionLabel from '../ui/SectionLabel'
 import ArrowButton from '../ui/ArrowButton'
 import { achievements } from '../../data/achievements'
 
 const TEXT_W = 280
 const IMG_W = 420
+const FIRST_SLIDE_INDEX = 0
+const AUTOPLAY_DELAY = 3000
+const NORMAL_SLIDE_SPEED = 600
+const REWIND_SPEED = 220
 
 export default function AchievementSection() {
   const swiperRef = useRef(null)
-  const [activeIndex, setActiveIndex] = useState(0)
+  const rewindTimerRef = useRef(null)
+  const [activeIndex, setActiveIndex] = useState(FIRST_SLIDE_INDEX)
+
+  const clearRewindTimer = () => {
+    if (!rewindTimerRef.current) return
+    clearTimeout(rewindTimerRef.current)
+    rewindTimerRef.current = null
+  }
+
+  const rewindToStart = (swiper) => {
+    if (!swiper || swiper.destroyed) return
+    swiper.slideTo(FIRST_SLIDE_INDEX, REWIND_SPEED)
+    swiper.autoplay.start()
+  }
+
+  const scheduleRewindToStart = (swiper) => {
+    clearRewindTimer()
+    rewindTimerRef.current = setTimeout(() => {
+      rewindToStart(swiper)
+    }, AUTOPLAY_DELAY)
+  }
+
+  useEffect(() => {
+    return () => {
+      clearRewindTimer()
+    }
+  }, [])
 
   const handlePrev = () => {
     if (!swiperRef.current) return
@@ -23,17 +52,21 @@ export default function AchievementSection() {
 
   const handleNext = () => {
     if (!swiperRef.current) return
+    if (swiperRef.current.isEnd) {
+      clearRewindTimer()
+      rewindToStart(swiperRef.current)
+      return
+    }
     swiperRef.current.slideNext()
     swiperRef.current.autoplay.start()
   }
 
   return (
-    <section className="ml-[10%] py-16 md:py-20 overflow-hidden bg-white">
+    <section className="ml-[10%] py-16 md:py-20 overflow-visible bg-white">
       {/* Header inside max-width container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         <div className="flex items-end justify-between">
           <div>
-            <SectionLabel />
             <h2 className="text-3xl md:text-4xl font-bold text-primary">Achievement</h2>
           </div>
           <div className="flex gap-1">
@@ -47,20 +80,29 @@ export default function AchievementSection() {
       <Swiper
         onSwiper={(s) => {
           swiperRef.current = s
-          setActiveIndex(s.realIndex) // sync initial active index
+        }}
+        onInit={(s) => {
+          // Keep initial state aligned with the first achievement card.
+          s.slideTo(FIRST_SLIDE_INDEX, 0, false)
+          setActiveIndex(FIRST_SLIDE_INDEX)
         }}
         modules={[Autoplay]}
         slidesPerView="auto"
         centeredSlides
         spaceBetween={8}
-        speed={600}
-        loop
-        loopAdditionalSlides={2}
-        initialSlide={0}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-        onSlideChangeTransitionEnd={(s) => {
-          setActiveIndex(s.realIndex)
-          s.update()
+        speed={NORMAL_SLIDE_SPEED}
+        initialSlide={FIRST_SLIDE_INDEX}
+        autoplay={{
+          delay: AUTOPLAY_DELAY,
+          disableOnInteraction: false,
+          stopOnLastSlide: true,
+        }}
+        onSlideChange={(s) => {
+          setActiveIndex(s.activeIndex)
+          if (!s.isEnd) clearRewindTimer()
+        }}
+        onReachEnd={(s) => {
+          scheduleRewindToStart(s)
         }}
         style={{ overflow: 'visible' }}
       >
@@ -82,8 +124,8 @@ export default function AchievementSection() {
                   className="flex flex-col justify-between p-8 flex-shrink-0"
                   style={{
                     width: TEXT_W,
-                    backgroundColor: '#111827',
-                    borderBottom: '4px solid #c0392b',
+                    backgroundColor: '#303030',
+                    borderBottom: '4px solid #8B0000',
                   }}
                 >
                   <h3 className="text-white font-bold text-base leading-snug">

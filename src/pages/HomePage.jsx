@@ -37,11 +37,9 @@ export default function HomePage() {
       {/* Content Wrapper — mengapung naik menutupi hero */}
       <div className="relative z-10 -mt-20 shadow-2xl">
         {/* Section pertama: sudut atas melengkung */}
-        <div className="overflow-hidden">
+        <div className="overflow-visible">
           <AchievementSection />
-          <div className="bg-white">
-            <ArticleSection />
-          </div>
+          <ArticleSection />          
         </div>
 
         {/* Section dengan bg berbeda */}

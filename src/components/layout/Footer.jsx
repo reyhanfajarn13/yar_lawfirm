@@ -21,7 +21,7 @@ const practiceAreaLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-dark text-gray-300">
+    <footer className="bg-white text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Column 1 - Company Info */}
@@ -98,9 +98,9 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700">
+      <div className="border-t border-[#8B0000]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-500">&copy; 2025 Law Firm Yar. All rights reserved.</p>
+          <p className="text-sm text-primary">&copy; 2025 Law Firm Yar. All rights reserved.</p>
           <div className="flex gap-4">
             {/* WhatsApp */}
             <a href="#" className="w-9 h-9 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-colors">

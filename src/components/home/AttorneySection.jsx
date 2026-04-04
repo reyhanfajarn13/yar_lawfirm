@@ -1,76 +1,81 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import 'swiper/css'
 
-import SectionLabel from '../ui/SectionLabel'
-import ArrowButton from '../ui/ArrowButton'
 import { attorneys } from '../../data/attorneys'
 
 export default function AttorneySection() {
-  const prevRef = useRef(null)
-  const nextRef = useRef(null)
+  const swiperRef = useRef(null)
 
   return (
-    <section className="py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <SectionLabel />
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">Our Expert Attorney</h2>
-            <p className="text-secondary mt-2">
-              Our experienced attorneys are ready to help you
-            </p>
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-56 bg-[#2f3134]" />
+
+      <div className="relative max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative bg-[#f1f2f3] px-5 py-8 md:px-10 md:py-10 after:pointer-events-none after:absolute after:bottom-0 after:left-full after:top-0 after:w-screen after:bg-[#f1f2f3]">
+          <div className="mb-8 flex items-center justify-between md:mb-10">
+            <h2 className="text-4xl font-medium leading-tight text-[#2e3239] md:text-[3.15rem]">
+              Our Expert Attorney
+            </h2>
+
+            <div className="flex gap-3">
+              <button
+                type="button"
+                aria-label="Previous attorney"
+                onClick={() => swiperRef.current?.slidePrev()}
+                className="flex h-12 w-12 items-center justify-center border border-[#383d44] text-[#30353c] transition-colors hover:bg-[#30353c] hover:text-white"
+              >
+                <ChevronLeft className="h-8 w-8" />
+              </button>
+              <button
+                type="button"
+                aria-label="Next attorney"
+                onClick={() => swiperRef.current?.slideNext()}
+                className="flex h-12 w-12 items-center justify-center border border-[#383d44] text-[#30353c] transition-colors hover:bg-[#30353c] hover:text-white"
+              >
+                <ChevronRight className="h-8 w-8" />
+              </button>
+            </div>
           </div>
-          <div className="flex gap-2">
-            <ArrowButton direction="left" ref={prevRef} />
-            <ArrowButton direction="right" ref={nextRef} />
+
+          <div>
+            <Swiper
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper
+              }}
+              slidesPerView="auto"
+              spaceBetween={24}
+              speed={650}
+              className="!overflow-visible"
+            >
+              {attorneys.map((attorney) => (
+                <SwiperSlide key={attorney.id} className="!w-[305px] md:!w-[360px]">
+                  <Link to={`/attorneys/${attorney.slug}`} className="group block">
+                    <article className="relative h-[430px] overflow-hidden bg-[#1f2126]">
+                      <img
+                        src={attorney.image}
+                        alt={attorney.name}
+                        className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#16171c] via-[#16171cbf] to-[#16171c14]" />
+
+                      <div className="absolute bottom-6 left-6 right-6">
+                        <ArrowRight className="mb-4 h-8 w-8 text-white" />
+                        <h3 className="text-[1.08rem] font-light leading-relaxed text-white md:text-[1.1rem]">
+                          {attorney.name}
+                        </h3>
+                        <p className="mt-1 text-[1rem] font-light text-[#ff5757]">{attorney.role}</p>
+                      </div>
+                    </article>
+                  </Link>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
-
-        {/* Carousel */}
-        <Swiper
-          modules={[Navigation]}
-          spaceBetween={24}
-          slidesPerView={1}
-          breakpoints={{
-            640: { slidesPerView: 2 },
-            768: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
-          }}
-          onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current
-            swiper.params.navigation.nextEl = nextRef.current
-            swiper.navigation.init()
-            swiper.navigation.update()
-          }}
-        >
-          {attorneys.map((attorney) => (
-            <SwiperSlide key={attorney.id}>
-              <Link to={`/attorneys/${attorney.slug}`} className="group block">
-                <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-4">
-                  <img
-                    src={attorney.image}
-                    alt={attorney.name}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  <div className="absolute bottom-4 left-4 w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                    <ArrowRight className="w-4 h-4 text-white" />
-                  </div>
-                </div>
-                <h3 className="text-sm font-semibold text-primary leading-snug">
-                  {attorney.name}
-                </h3>
-                <p className="text-sm text-accent mt-1">{attorney.role}</p>
-              </Link>
-            </SwiperSlide>
-          ))}
-        </Swiper>
       </div>
     </section>
   )

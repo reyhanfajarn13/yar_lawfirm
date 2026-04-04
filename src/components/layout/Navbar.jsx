@@ -30,7 +30,7 @@ export default function Navbar() {
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-white shadow-md'
-          : 'bg-white/0 backdrop-blur-sm'
+          : 'bg-white/0'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
@@ -53,11 +53,11 @@ export default function Navbar() {
                 className={`pb-1 transition-colors ${
                   location.pathname === link.path
                     ? scrolled
-                      ? 'border-b-2 border-black text-primary'
-                      : 'border-b-2 border-white text-white'
+                      ? 'border-b-2 border-[#8B0000] text-primary'
+                      : 'border-b-2 border-[#8B0000] text-primary'
                     : scrolled
                       ? 'text-secondary hover:text-primary'
-                      : 'text-white/80 hover:text-white'
+                      : 'text-primary hover:text-white'
                 }`}
               >
                 {link.label}

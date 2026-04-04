@@ -1,69 +1,115 @@
-import { ArrowRight } from 'lucide-react'
 import Button from '../ui/Button'
 import { articles } from '../../data/articles'
 
-function ArticleCard({ article, className = '' }) {
+const EXCERPT_MAX_CHARS = 200
+
+function truncateExcerpt(text, maxChars = EXCERPT_MAX_CHARS) {
+  if (!text || text.length <= maxChars) return text
+  return `${text.slice(0, maxChars).trimEnd()}...`
+}
+
+function ArticleMeta({ date, category, dark = false }) {
+  const textClass = dark ? 'text-white/85' : 'text-[#2e3238]'
+
   return (
-    <div className={`group cursor-pointer flex flex-col h-full ${className}`}>
-      {article.image && (
-        <div className="relative overflow-hidden rounded-lg flex-1 min-h-[200px]">
-          <img
-            src={article.image}
-            alt={article.title}
-            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            loading="lazy"
-          />
-        </div>
-      )}
-      <div className={`${article.image ? 'mt-4' : 'flex flex-col justify-center h-full'}`}>
-        <div className="flex items-center gap-2 text-sm text-muted mb-2">
-          <span>{article.date}</span>
-          <span>&middot;</span>
-          <span>{article.category}</span>
-        </div>
-        <h3 className="text-lg font-semibold text-primary leading-snug mb-2 group-hover:underline italic">
-          {article.title}
-        </h3>
-        <p className="text-sm text-secondary leading-relaxed">{article.excerpt}</p>
-      </div>
+    <div className={`flex items-center gap-3 text-sm ${textClass}`}>
+      <span>{date}</span>
+      <span className="text-[#d6322b]">&middot;</span>
+      <span>{category}</span>
     </div>
   )
 }
 
-export default function ArticleSection() {
+function ArticleCopy({ article, dark = false }) {
+  const titleClass = dark ? 'text-white' : 'text-[#2a2e35]'
+  const bodyClass = dark ? 'text-white/85' : 'text-[#343942]'
+
   return (
-    <section className="py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-[auto_auto] gap-6">
-          {/* Article 1 - top left (text only) */}
-          <div className="md:col-span-1 border-b md:border-b-0 md:border-r border-border pb-6 md:pb-0 md:pr-6">
-            <ArticleCard article={articles[0]} />
+    <>
+      <ArticleMeta date={article.date} category={article.category} dark={dark} />
+      <h3 className={`mt-5 text-[1.85rem] md:text-[2.35rem] font-medium leading-[1.15] ${titleClass}`}>
+        {article.title}
+      </h3>
+      <p className={`mt-6 text-[1.05rem] leading-relaxed ${bodyClass}`}>
+        {truncateExcerpt(article.excerpt)}
+      </p>
+    </>
+  )
+}
+
+function MediaPanel({ image, className = '' }) {
+  return (
+    <div className={`relative overflow-hidden bg-[#c9c9cb] ${className}`}>
+      {image && (
+        <>
+          <img
+            src={image}
+            alt="Article visual"
+            className="absolute inset-0 h-full w-full object-cover grayscale saturate-0 opacity-65"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-[#cdced1]/65" />
+        </>
+      )}
+    </div>
+  )
+}
+
+function FeatureSplitCard({ article }) {
+  return (
+    <article className="overflow-hidden bg-[#f3f3f4] shadow-[0_12px_28px_rgba(15,23,42,0.14)]">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.03fr] min-h-[340px]">
+        <div className="px-8 py-10 md:px-12 md:py-14">
+          <ArticleCopy article={article} />
+        </div>
+        <MediaPanel image={article.image} />
+      </div>
+    </article>
+  )
+}
+
+function StackedCard({ article, tall = false }) {
+  return (
+    <article className="overflow-hidden bg-[#f3f3f4] shadow-[0_10px_24px_rgba(15,23,42,0.14)]">
+      <MediaPanel image={article.image} className={tall ? 'h-[230px] md:h-[260px]' : 'h-[230px]'} />
+      <div className="px-7 py-8 md:px-8 md:py-9">
+        <ArticleCopy article={article} />
+      </div>
+    </article>
+  )
+}
+
+function DarkCard({ article }) {
+  return (
+    <article className="bg-[#303030] px-7 py-8 md:px-8 md:py-9 shadow-[0_12px_28px_rgba(15,23,42,0.22)]">
+      <ArticleCopy article={article} dark />
+    </article>
+  )
+}
+
+export default function ArticleSection() {
+  const [featureArticle, topRightArticle, bottomLeftArticle, bottomCenterArticle, darkArticle] = articles
+
+  return (
+    <section className="relative overflow-hidden py-16 md:py-20 px-[10%]">
+
+      <div className="relative max-w-[1320px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1.06fr] gap-6 lg:gap-7">
+          <div className="space-y-6 lg:space-y-7">
+            <FeatureSplitCard article={featureArticle} />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-7">
+              <StackedCard article={bottomLeftArticle} />
+              <StackedCard article={bottomCenterArticle} />
+            </div>
           </div>
 
-          {/* Article 2 - top right (large image, spans 2 rows) */}
-          <div className="md:col-span-2 md:row-span-2">
-            <ArticleCard article={articles[1]} className="h-full" />
-          </div>
-
-          {/* Article 3 & 4 - bottom left (2 small side by side) */}
-          <div className="md:col-span-1 grid grid-cols-2 gap-4">
-            <ArticleCard article={articles[2]} />
-            <ArticleCard article={articles[3]} />
+          <div className="space-y-6 lg:space-y-7">
+            <StackedCard article={topRightArticle} tall />
+            <DarkCard article={darkArticle} />
           </div>
         </div>
 
-        {/* Article 5 - full width bottom */}
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="md:col-span-1">
-            <ArticleCard article={articles[2]} />
-          </div>
-          <div className="md:col-span-2">
-            <ArticleCard article={articles[4]} />
-          </div>
-        </div>
-
-        {/* Browse All Button */}
         <div className="mt-10">
           <Button variant="outline-dark" href="/blog">
             Browse all article
