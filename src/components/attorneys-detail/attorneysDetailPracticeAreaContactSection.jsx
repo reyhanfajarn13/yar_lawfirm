@@ -14,7 +14,7 @@ export default function AttorneysDetailPracticeAreaContactSection({ attorney }) 
   if (!attorney) return null
 
   return (
-    <section className="bg-white pb-10 md:pb-12">
+    <section className="bg-[#f1f4f6] pb-10 md:pb-12">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.55fr] gap-5 md:gap-6 items-stretch">
           <article className="bg-[#ffffff] px-6 py-7 md:px-8 md:py-8 shadow-[0_8px_20px_rgba(15,23,42,0.08)]">

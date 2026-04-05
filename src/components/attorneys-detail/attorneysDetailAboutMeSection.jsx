@@ -24,7 +24,7 @@ export default function AttorneysDetailAboutMeSection({ attorney }) {
 
   return (
     <section className="relative z-20 -mt-[6rem] pb-8 md:-mt-[7.5rem] md:pb-10">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[6rem] bg-white md:top-[7.5rem]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[6rem] bg-[#f1f4f6] md:top-[7.5rem]" />
 
       <div className="relative max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         <article className="bg-[#ffffff] px-6 py-8 md:px-8 md:py-9 shadow-[0_10px_24px_rgba(15,23,42,0.14)]">

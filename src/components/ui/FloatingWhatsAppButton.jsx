@@ -1,8 +1,8 @@
 import { Phone } from 'lucide-react'
 
 export default function FloatingWhatsAppButton({
-  phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '6281234567890',
-  message = 'Halo, saya ingin konsultasi hukum.',
+  phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '6287877540196',
+  message = 'Halo, saya ingin melakukan konsultasi hukum dengan YAR Lawfirm. Mohon informasi lebih lanjut mengenai prosedur dan jadwal konsultasinya. Terima kasih.',
 }) {
   const cleanedNumber = String(phoneNumber).replace(/[^\d]/g, '')
   const href = `https://wa.me/${cleanedNumber}?text=${encodeURIComponent(message)}`

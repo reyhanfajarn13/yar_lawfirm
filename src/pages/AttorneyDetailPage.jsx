@@ -5,7 +5,7 @@ import CTASection from '../components/home/CTASection'
 import AttorneysDetailHeroSection from '../components/attorneys-detail/attorneysDetailHeroSection'
 import AttorneysDetailAboutMeSection from '../components/attorneys-detail/attorneysDetailAboutMeSection'
 import AttorneysDetailPracticeAreaContactSection from '../components/attorneys-detail/attorneysDetailPracticeAreaContactSection'
-import AttorneysPeopleSection from '../components/aboutus/AboutLeadershipSection'
+import AttorneysDetailPeopleSection from '../components/attorneys-detail/attorneysDetailPeopleSection'
 import { attorneys } from '../data/attorneys'
 
 export default function AttorneyDetailPage() {
@@ -53,6 +53,7 @@ export default function AttorneyDetailPage() {
         <div className="overflow-visible">
           <AttorneysDetailAboutMeSection attorney={attorney} />
           <AttorneysDetailPracticeAreaContactSection attorney={attorney} />
+          <AttorneysDetailPeopleSection />
         </div>
 
         <div className="bg-dark">

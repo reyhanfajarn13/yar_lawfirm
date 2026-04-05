@@ -1,5 +1,5 @@
 const STORY_IMAGE =
-  'https://images.unsplash.com/photo-1436450412740-6b988f486c6b?w=1200&q=80'
+  'https://ik.imagekit.io/mindwalker/yarlawfirm/about-us-asset/aboutus-ourstory-asset.webp'
 
 export default function AboutStorySection() {
   return (

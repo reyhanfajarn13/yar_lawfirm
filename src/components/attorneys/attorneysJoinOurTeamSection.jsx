@@ -1,7 +1,7 @@
 import { Briefcase, BadgeDollarSign, Scale, Users } from 'lucide-react'
 
 const JOIN_TEAM_IMAGE = {
-  src: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1200&q=80',
+  src: 'https://ik.imagekit.io/mindwalker/yarlawfirm/attorneys-joinus-asset.png',
   alt: 'Join our team',
 }
 

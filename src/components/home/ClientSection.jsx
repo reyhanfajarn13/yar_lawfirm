@@ -1,6 +1,31 @@
 import { clients } from '../../data/clients'
 
 export default function ClientSection() {
+  const leftRowClients = clients.filter((client) => client.id >= 1 && client.id <= 6)
+  const rightRowClients = clients.filter((client) => client.id >= 7 && client.id <= 12)
+
+  const renderLogoRow = (rowClients, rowClassName = '') => (
+    <div className="w-full overflow-hidden">
+      <div className={`client-marquee-track ${rowClassName}`}>
+        {[...rowClients, ...rowClients].map((client, index) => (
+          <div
+            key={`${client.id}-${index}`}
+            className="flex h-24 w-[12rem] flex-none items-center justify-center px-5 md:h-28 md:w-[14rem]"
+          >
+            <div className="h-full w-full py-2">
+              <img
+                src={client['image-link']}
+                alt={client.name}
+                className="max-h-full max-w-full object-contain object-center"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+
   return (
     <section className="py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -10,26 +35,32 @@ export default function ClientSection() {
         <p className="text-secondary mb-12">
           We are proud to serve these distinguished clients
         </p>
-
-        {/* Logo Grid */}
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-8 md:gap-12">
-          {clients.map((client) => (
-            <div
-              key={client.id}
-              className="flex items-center justify-center h-16 px-4 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all"
-            >
-              {/* Placeholder logo - replace with actual images */}
-              <div className="text-center">
-                <div className="w-16 h-12 bg-gray-200 rounded flex items-center justify-center mb-1">
-                  <span className="text-[10px] text-gray-500 font-medium leading-tight text-center px-1">
-                    {client.name}
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
+      <div className="relative left-1/2 right-1/2 mt-2 w-screen -translate-x-1/2 space-y-6">
+        {renderLogoRow(leftRowClients)}
+        {renderLogoRow(rightRowClients, 'client-marquee-track-reverse')}
+      </div>
+
+      <style>{`
+        .client-marquee-track {
+          display: flex;
+          width: max-content;
+          animation: client-marquee-left 22s linear infinite;
+        }
+
+        .client-marquee-track-reverse {
+          animation-direction: reverse;
+        }
+
+        @keyframes client-marquee-left {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </section>
   )
 }

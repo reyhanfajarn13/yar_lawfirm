@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Search, Mail, Menu, X } from 'lucide-react'
+import redIconYarlaw from '../../assets/icons/red-icon-yarlaw.png'
+import whiteIconYarlaw from '../../assets/icons/white-icon-yarlaw.png'
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -14,6 +16,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
+  const isHomePage = location.pathname === '/'
+  const logoSrc = isHomePage || scrolled ? redIconYarlaw : whiteIconYarlaw
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -35,13 +39,13 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <span className={`text-2xl font-bold tracking-wider ${scrolled ? 'text-primary' : 'text-white'}`}>
-            Y.A.R
-          </span>
-          <span className={`text-[10px] uppercase leading-tight hidden sm:block ${scrolled ? 'text-muted' : 'text-white/70'}`}>
-            Law Firm
-          </span>
+        <Link to="/" className="flex items-center">
+          <img
+            src={logoSrc}
+            alt="YAR Law Firm"
+            className="h-12 w-auto object-contain"
+            loading="lazy"
+          />
         </Link>
 
         {/* Desktop Nav Links */}
