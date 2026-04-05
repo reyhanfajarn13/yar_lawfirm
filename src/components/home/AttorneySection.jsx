@@ -60,7 +60,7 @@ export default function AttorneySection() {
                         className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#16171c] via-[#16171cbf] to-[#16171c14]" />
+                      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-[#16171c] via-[#16171cbf] to-transparent" />
 
                       <div className="absolute bottom-6 left-6 right-6">
                         <ArrowRight className="mb-4 h-8 w-8 text-white" />

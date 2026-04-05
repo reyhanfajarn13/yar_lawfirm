@@ -1,4 +1,4 @@
-const HERO_BG = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80'
+const HERO_BG = 'https://ik.imagekit.io/mindwalker/yarlawfirm/background-asset/home-hero-bg.webp'
 
 export default function HeroSection() {
   return (

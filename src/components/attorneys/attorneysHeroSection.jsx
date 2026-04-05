@@ -1,5 +1,5 @@
 const ATTORNEY_HERO_BG =
-  'https://images.unsplash.com/photo-1436450412740-6b988f486c6b?w=1800&q=80'
+  'https://ik.imagekit.io/mindwalker/yarlawfirm/background-asset/blue-hero-bg.webp'
 
 export default function PracticeAreaHeroSection() {
   return (

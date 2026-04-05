@@ -54,10 +54,10 @@ export default function Navbar() {
                   location.pathname === link.path
                     ? scrolled
                       ? 'border-b-2 border-[#8B0000] text-primary'
-                      : 'border-b-2 border-[#8B0000] text-primary'
+                      : 'border-b-2 border-[#8B0000] text-white'
                     : scrolled
                       ? 'text-secondary hover:text-primary'
-                      : 'text-primary hover:text-white hover:border-b-2 border-[#8B0000]'
+                      : 'text-white hover:text-white hover:border-b-2 border-[#8B0000]'
                 }`}
               >
                 {link.label}
