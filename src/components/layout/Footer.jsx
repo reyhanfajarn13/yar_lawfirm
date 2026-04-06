@@ -118,7 +118,7 @@ export default function Footer(
       {/* Bottom Bar */}
       <div className="border-t border-[#8B0000]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-primary">&copy; 2025 Law Firm Yar. All rights reserved.</p>
+          <p className="text-sm text-primary">&copy; 2026 Law Firm Yar. All rights reserved.</p>
           <div className="flex gap-4">
             {/* WhatsApp */}
             <a href={waHref} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-[#8B0000] transition-colors">

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Plus } from 'lucide-react'
 import { practiceAreaFaqs } from '../../data/practiceAreaFAQ.js'
 
@@ -12,6 +13,12 @@ function Dots() {
 }
 
 export default function PracticeAreaFAQSection() {
+  const [openId, setOpenId] = useState(null)
+
+  const handleToggle = (id) => {
+    setOpenId((prev) => (prev === id ? null : id))
+  }
+
   return (
     <section className="py-12 md:py-16">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,18 +34,39 @@ export default function PracticeAreaFAQSection() {
 
           <div className="mt-7 border-t border-[#d9dde1]">
             {practiceAreaFaqs.map((faq) => (
-              <button
-                key={faq.id}
-                type="button"
-                className="w-full py-4 border-b border-[#d9dde1] text-left flex items-center justify-between gap-4"
-              >
-                <span className="text-[0.97rem] text-[#353a42] leading-relaxed">
-                  {faq.question}
-                </span>
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ef3e57] text-white flex-shrink-0">
-                  <Plus className="h-4 w-4" />
-                </span>
-              </button>
+              <div key={faq.id} className="border-b border-[#d9dde1]">
+                <button
+                  type="button"
+                  onClick={() => handleToggle(faq.id)}
+                  aria-expanded={openId === faq.id}
+                  aria-controls={`practice-area-faq-${faq.id}`}
+                  className="w-full py-4 text-left flex items-center justify-between gap-4"
+                >
+                  <span className="text-[0.97rem] text-[#353a42] leading-relaxed">
+                    {faq.question}
+                  </span>
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ef3e57] text-white flex-shrink-0">
+                    <Plus
+                      className={`h-4 w-4 transition-transform duration-300 ${
+                        openId === faq.id ? 'rotate-45' : 'rotate-0'
+                      }`}
+                    />
+                  </span>
+                </button>
+
+                <div
+                  id={`practice-area-faq-${faq.id}`}
+                  className={`grid transition-all duration-300 ${
+                    openId === faq.id ? 'grid-rows-[1fr] pb-4' : 'grid-rows-[0fr]'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="text-[0.94rem] leading-relaxed text-[#4a5059] pr-10">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </article>

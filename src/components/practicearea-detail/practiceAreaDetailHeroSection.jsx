@@ -1,11 +1,11 @@
-const BLOG_DETAIL_HERO_BG =
-  'https://ik.imagekit.io/mindwalker/yarlawfirm/background-asset/blue-hero-bg.webp'
+const PRACTICE_AREA_DETAIL_HERO_BG =
+  'https://ik.imagekit.io/mindwalker/yarlawfirm/background-asset/grey-clear-hero-bg.webp'
 
-export default function BlogDetailHeroSection() {
+export default function PracticeAreaDetailHeroSection() {
   return (
     <section className="relative h-full">
       <img
-        src={BLOG_DETAIL_HERO_BG}
+        src={PRACTICE_AREA_DETAIL_HERO_BG}
         alt="Law firm office exterior"
         className="absolute inset-0 h-full w-full object-cover"
         loading="lazy"

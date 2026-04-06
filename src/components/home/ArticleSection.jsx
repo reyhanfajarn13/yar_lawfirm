@@ -39,17 +39,14 @@ function ArticleCopy({ article, dark = false }) {
 
 function MediaPanel({ image, className = '' }) {
   return (
-    <div className={`relative overflow-hidden bg-[#c9c9cb] ${className}`}>
+    <div className={`relative overflow-hidden bg-[#f3f3f4] ${className}`}>
       {image && (
-        <>
-          <img
-            src={image}
-            alt="Article visual"
-            className="absolute inset-0 h-full w-full object-cover grayscale saturate-0 opacity-65"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-[#cdced1]/65" />
-        </>
+        <img
+          src={image}
+          alt="Article visual"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          loading="lazy"
+        />
       )}
     </div>
   )
@@ -57,33 +54,39 @@ function MediaPanel({ image, className = '' }) {
 
 function FeatureSplitCard({ article }) {
   return (
-    <article className="overflow-hidden bg-[#f3f3f4] shadow-[0_12px_28px_rgba(15,23,42,0.14)]">
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.03fr] min-h-[340px]">
-        <div className="px-8 py-10 md:px-12 md:py-14">
-          <ArticleCopy article={article} />
+    <a href={article['source-link']} className="block group">
+      <article className="overflow-hidden bg-[#f3f3f4] shadow-[0_12px_28px_rgba(15,23,42,0.14)] transition-shadow group-hover:shadow-[0_14px_32px_rgba(15,23,42,0.2)]">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.03fr] min-h-[340px]">
+          <div className="px-8 py-10 md:px-12 md:py-14">
+            <ArticleCopy article={article} />
+          </div>
+          <MediaPanel image={article.image} />
         </div>
-        <MediaPanel image={article.image} />
-      </div>
-    </article>
+      </article>
+    </a>
   )
 }
 
 function StackedCard({ article, tall = false }) {
   return (
-    <article className="overflow-hidden bg-[#f3f3f4] shadow-[0_10px_24px_rgba(15,23,42,0.14)]">
-      <MediaPanel image={article.image} className={tall ? 'h-[230px] md:h-[260px]' : 'h-[230px]'} />
-      <div className="px-7 py-8 md:px-8 md:py-9">
-        <ArticleCopy article={article} />
-      </div>
-    </article>
+    <a href={article['source-link']} className="block group">
+      <article className="overflow-hidden bg-[#f3f3f4] shadow-[0_10px_24px_rgba(15,23,42,0.14)] transition-shadow group-hover:shadow-[0_14px_30px_rgba(15,23,42,0.2)]">
+        <MediaPanel image={article.image} className={tall ? 'h-[230px] md:h-[260px]' : 'h-[230px]'} />
+        <div className="px-7 py-8 md:px-8 md:py-9">
+          <ArticleCopy article={article} />
+        </div>
+      </article>
+    </a>
   )
 }
 
 function DarkCard({ article }) {
   return (
-    <article className="bg-[#303030] px-7 py-8 md:px-8 md:py-9 shadow-[0_12px_28px_rgba(15,23,42,0.22)]">
-      <ArticleCopy article={article} dark />
-    </article>
+    <a href={article['source-link']} className="block group">
+      <article className="bg-[#303030] px-7 py-8 md:px-8 md:py-9 shadow-[0_12px_28px_rgba(15,23,42,0.22)] transition-shadow group-hover:shadow-[0_16px_34px_rgba(15,23,42,0.3)]">
+        <ArticleCopy article={article} dark />
+      </article>
+    </a>
   )
 }
 
