@@ -12,6 +12,8 @@ function Dots({ color = '#d10010' }) {
 
 export default function AttorneysDetailPracticeAreaContactSection({ attorney }) {
   if (!attorney) return null
+  const linkedin = attorney.contact?.linkedin?.trim() || '-'
+  const email = attorney.contact?.email?.trim() || '-'
 
   return (
     <section className="bg-[#f1f4f6] pb-10 md:pb-12">
@@ -38,23 +40,37 @@ export default function AttorneysDetailPracticeAreaContactSection({ attorney }) 
             <h2 className="mt-4 text-2xl md:text-[2rem] font-medium leading-tight">Contact</h2>
 
             <div className="mt-5 space-y-3">
-              <a
-                href={attorney.contact?.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-white/90 hover:text-white text-sm"
-              >
-                <LinkIcon className="h-4 w-4" />
-                <span>{attorney.contact?.linkedin || '-'}</span>
-              </a>
+              {linkedin === '-' ? (
+                <div className="flex items-center gap-2 text-white/90 text-sm">
+                  <LinkIcon className="h-4 w-4" />
+                  <span>-</span>
+                </div>
+              ) : (
+                <a
+                  href={linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-white/90 hover:text-white text-sm break-all"
+                >
+                  <LinkIcon className="h-4 w-4 flex-shrink-0" />
+                  <span>{linkedin}</span>
+                </a>
+              )}
 
-              <a
-                href={`mailto:${attorney.contact?.email || ''}`}
-                className="inline-flex items-center gap-2 text-white/90 hover:text-white text-sm"
-              >
-                <Mail className="h-4 w-4" />
-                <span>{attorney.contact?.email || '-'}</span>
-              </a>
+              {email === '-' ? (
+                <div className="flex items-center gap-2 text-white/90 text-sm">
+                  <Mail className="h-4 w-4" />
+                  <span>-</span>
+                </div>
+              ) : (
+                <a
+                  href={`mailto:${email}`}
+                  className="flex items-center gap-2 text-white/90 hover:text-white text-sm break-all"
+                >
+                  <Mail className="h-4 w-4 flex-shrink-0" />
+                  <span>{email}</span>
+                </a>
+              )}
             </div>
 
             <button

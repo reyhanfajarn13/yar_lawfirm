@@ -73,7 +73,13 @@ export default function Navbar() {
         {/* Icons */}
         <div className="flex items-center gap-4">
           <Search className={`w-5 h-5 cursor-pointer ${scrolled ? 'text-primary' : 'text-white'}`} />
-          <Mail className={`w-5 h-5 cursor-pointer hidden sm:block ${scrolled ? 'text-primary' : 'text-white'}`} />
+          <a
+            href="mailto:lawfirmyar@gmail.com"
+            aria-label="Email YAR Law Firm"
+            className="hidden sm:block"
+          >
+            <Mail className={`w-5 h-5 cursor-pointer ${scrolled ? 'text-primary' : 'text-white'}`} />
+          </a>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden cursor-pointer"

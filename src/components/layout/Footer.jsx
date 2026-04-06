@@ -8,7 +8,6 @@ const quickLinks = [
   { label: 'Practice Areas', path: '/practice-areas' },
   { label: 'Attorneys', path: '/attorneys' },
   { label: 'Blog', path: '/blog' },
-  { label: 'Contact', path: '/contact' },
 ]
 
 const practiceAreaLinks = [
