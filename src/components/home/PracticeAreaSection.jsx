@@ -11,9 +11,7 @@ export default function PracticeAreaSection() {
         <SectionLabel />
         <h2 className="text-3xl md:text-4xl font-light text-white mb-3">Our Practice Areas</h2>
         <p className="text-white max-w-2xl mb-12">
-          Lorem ipsum dolor sit amet consectetur. Dignissim placerat lorem vestibulum volutpat lacus
-          aenean. Tortor neque a praesent ullamcorper. Egestas aliquam fusce scelerisque dictum
-          ridiculus non imperdiet felis mauris.
+          We offer comprehensive legal services across a wide range of practice areas to meet your specific needs.
         </p>
 
         {/* Grid */}
