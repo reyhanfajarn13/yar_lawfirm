@@ -13,11 +13,11 @@ export default function FloatingWhatsAppButton({
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat via WhatsApp"
-      className="fixed bottom-6 right-6 z-[90] block h-[84px] w-[84px] rounded-full bg-[#8b0000] p-[6px] shadow-[0_8px_20px_rgba(15,23,42,0.3)] transition-transform duration-200 hover:scale-105"
+      className="fixed bottom-6 right-6 z-[90] block h-[84px] w-[84px] rounded-full bg-[#25D366] p-[6px] shadow-[0_8px_20px_rgba(15,23,42,0.3)] transition-transform duration-200 hover:scale-105"
     >
       <div className="relative flex h-full w-full items-center justify-center rounded-full bg-white">
         <span className="absolute bottom-2 left-3 h-4 w-4 rotate-45 bg-white" />
-        <Phone className="relative z-10 h-8 w-8 text-[#8b0000]" strokeWidth={3} />
+        <Phone className="relative z-10 h-8 w-8 text-[#25D366]" strokeWidth={3} />
       </div>
     </a>
   )

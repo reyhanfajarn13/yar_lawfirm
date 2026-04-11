@@ -1,4 +1,4 @@
-import Button from '../ui/Button'
+﻿import Button from '../ui/Button'
 import { articles } from '../../data/articles'
 
 const EXCERPT_MAX_CHARS = 200
@@ -122,3 +122,4 @@ export default function ArticleSection() {
     </section>
   )
 }
+

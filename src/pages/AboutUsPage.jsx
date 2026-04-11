@@ -8,6 +8,7 @@ import AboutValuesSection from '../components/aboutus/AboutValuesSection'
 import AboutFounderSection from '../components/aboutus/AboutFounderSection'
 import AboutWhyChooseUsSection from '../components/aboutus/AboutWhyChooseUsSection'
 import AboutLeadershipSection from '../components/aboutus/AboutLeadershipSection'
+import AboutAwardsSection from '../components/aboutus/AboutAwardsSection'
 
 export default function AboutUsPage() {
   return (
@@ -39,6 +40,7 @@ export default function AboutUsPage() {
       <div className="relative z-10 -mt-20 shadow-2xl">
         <div className="overflow-visible">
           <AboutStorySection />
+          <AboutAwardsSection />
           <AboutValuesSection />
           <AboutFounderSection />
           <AboutWhyChooseUsSection />

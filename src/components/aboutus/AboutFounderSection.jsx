@@ -15,10 +15,10 @@ export default function AboutFounderSection() {
   return (
     <section className="bg-[#e6eaee] py-8 md:py-10">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-        <article className="bg-[#f0f1f2] px-6 py-8 md:px-12 md:py-10 shadow-[0_8px_20px_rgba(15,23,42,0.08)]">
+        <article className="bg-[#ffffff] px-6 py-8 md:px-12 md:py-10 shadow-[0_8px_20px_rgba(15,23,42,0.08)]">
           <Dots />
 
-          <h2 className="mt-5 text-2xl md:text-[2rem] font-medium leading-tight text-[#2f343c]">
+          <h2 className="mt-5 text-2xl md:text-[2rem] font-medium leading-tight text-primary">
             {founder.title}
           </h2>
           

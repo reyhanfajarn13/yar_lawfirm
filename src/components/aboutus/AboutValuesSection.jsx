@@ -75,7 +75,7 @@ function ValueItem({ item }) {
         <h3 className="text-[1rem] md:text-[1.25rem] font-medium text-[#8b0000]">
           {item.title}
         </h3>
-        <p className="mt-2 text-[0.8rem] md:text-[1rem] leading-relaxed text-[#353a42]">
+        <p className="mt-2 text-[0.8rem] md:text-[1rem] leading-relaxed text-primary">
           {item.description}
         </p>
       </div>
@@ -88,9 +88,9 @@ export default function AboutValuesSection() {
     <section className="bg-[#e6eaee]">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.38fr] gap-6 lg:gap-7 items-stretch">
-          <article className="bg-[#f0f1f2] p-8 md:p-12 shadow-[0_8px_20px_rgba(15,23,42,0.08)]">
+          <article className="bg-[#ffffff] p-8 md:p-12 shadow-[0_8px_20px_rgba(15,23,42,0.08)]">
             <Dots />
-            <h2 className="mt-5 text-2xl md:text-[2rem] font-medium leading-tight text-[#2f343c]">
+            <h2 className="mt-5 text-2xl md:text-[2rem] font-medium leading-tight text-primary">
               Our Mission
             </h2>
 
@@ -101,9 +101,9 @@ export default function AboutValuesSection() {
             </div>
           </article>
 
-          <article className="bg-[#f0f1f2] p-8 md:p-12 shadow-[0_8px_20px_rgba(15,23,42,0.08)]">
+          <article className="bg-[#ffffff] p-8 md:p-12 shadow-[0_8px_20px_rgba(15,23,42,0.08)]">
             <Dots />
-            <h2 className="mt-5 text-2xl md:text-[2rem] font-medium leading-tight text-[#2f343c]">
+            <h2 className="mt-5 text-2xl md:text-[2rem] font-medium leading-tight text-primary">
               Our Values
             </h2>
 
