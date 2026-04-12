@@ -1,5 +1,5 @@
 const BLOG_HERO_BG =
-  'https://ik.imagekit.io/mindwalker/yarlawfirm/background-asset/red-hero-bg.webp'
+  'https://ik.imagekit.io/mindwalker/yarlawfirm/background-asset/blue-hero-bg.webp'
 
 export default function BlogHeroSection() {
   return (

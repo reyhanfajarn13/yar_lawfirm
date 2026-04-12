@@ -1,5 +1,5 @@
 const PRACTICE_AREA_HERO_BG =
-  'https://ik.imagekit.io/mindwalker/yarlawfirm/background-asset/grey-hero-bg.webp'
+  'https://ik.imagekit.io/mindwalker/yarlawfirm/background-asset/blue-hero-bg.webp'
 
 export default function PracticeAreaHeroSection() {
   return (

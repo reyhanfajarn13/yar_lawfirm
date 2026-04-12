@@ -1,7 +1,7 @@
 import { Briefcase, BadgeDollarSign, Scale, Users } from 'lucide-react'
 
 const JOIN_TEAM_IMAGE = {
-  src: 'https://ik.imagekit.io/mindwalker/yarlawfirm/attorneys-joinus-assets.webp',
+  src: 'https://ik.imagekit.io/mindwalker/yarlawfirm/about-us-asset/tingey-injury-law-firm.webp',
   alt: 'Join our team',
 }
 

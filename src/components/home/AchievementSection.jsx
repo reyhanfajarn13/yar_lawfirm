@@ -62,7 +62,7 @@ export default function AchievementSection() {
   }
 
   return (
-    <section className="ml-[10%] py-16 md:py-20 overflow-visible bg-white">
+    <section className="relative ml-[10%] py-16 md:py-20 overflow-visible bg-white/25 backdrop-blur">
       {/* Header inside max-width container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         <div className="flex items-end justify-between">
@@ -159,15 +159,16 @@ export default function AchievementSection() {
 
                 {/* Image panel — expands into view when active */}
                 <div
-                  className="flex-shrink-0 overflow-hidden transition-all duration-500"
+                  className="flex flex-shrink-0 items-center justify-center overflow-hidden bg-[#1f2126] transition-all duration-500"
                   style={{ width: isActive ? IMG_W : 0 }}
                 >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="h-full object-cover"
-                    style={{ width: IMG_W }}
+                    className="h-full w-full object-contain object-center"
+                    style={{ width: IMG_W, maxHeight: '100%' }}
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

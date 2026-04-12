@@ -114,7 +114,7 @@ export default function ArticleSection() {
         </div>
 
         <div className="mt-10">
-          <Button variant="outline-dark" href="/blog">
+          <Button variant="outline-white" href="/blog">
             Browse all article
           </Button>
         </div>

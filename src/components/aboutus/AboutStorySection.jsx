@@ -1,4 +1,4 @@
-const STORY_IMAGE =
+﻿const STORY_IMAGE =
   'https://ik.imagekit.io/mindwalker/yarlawfirm/about-us-asset/aboutus-ourstory-asset.webp'
 
 export default function AboutStorySection() {
@@ -18,40 +18,51 @@ export default function AboutStorySection() {
             Our Story
           </h2>
 
-          <div className="mt-7 grid grid-cols-1 lg:grid-cols-[1.02fr_1fr] gap-6 lg:gap-7 items-start">
-            <div className="h-[320px] md:h-[360px] overflow-hidden">
-              <img
-                src={STORY_IMAGE}
-                alt="Law firm office interior"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
+          <div className="mt-7 h-[320px] md:h-[420px] overflow-hidden">
+            <img
+              src={STORY_IMAGE}
+              alt="Law firm office interior"
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          <div className="mt-7 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-7 items-start">
+            <div className="space-y-5 text-primary text-[1.05rem] leading-relaxed">
+              <p>
+                YAR Law Firm was founded in 2010 by Syamsul Huda Yudha, S.H., M.H., Azhar
+                Rahim Rivai, S.H., M.H., and Teuku Raja Rajuandar, S.H., and is based in
+                Jakarta, Indonesia. YAR Law Firm was established on the values of trust,
+                professionalism, and reliability.
+              </p>
+              <p>
+                We uphold the highest professional standards by providing effective,
+                efficient, and comprehensive legal solutions tailored to our clients'
+                needs. We prioritize integrity and meticulousness in handling complex
+                legal matters, ensuring that every legal strategy we provide is
+                appropriate and practical.
+              </p>
+              <p>
+                YAR Law Firm has earned the trust of a diverse range of clients, including
+                government agencies, state-owned enterprises, and both domestic and foreign
+                private companies. Our practice areas cover various sectors such as
+                commercial litigation, handling corruption criminal cases, bankruptcy
+                cases, and debt repayment deferrals.
+              </p>
+              <p>
+                We specialize in representing clients in the banking, mining, insurance,
+                oil and gas, and guarantee sectors, including the healthcare and
+                pharmaceutical industries, as well as advising on general corporate
+                matters.
+              </p>
             </div>
 
             <div className="space-y-5 text-primary text-[1.05rem] leading-relaxed">
               <p>
-YAR Law Firm was founded in 2010 by Syamsul Huda Yudha, S.H., M.H., Azhar Rahim Rivai, 
-S.H., M.H., and Teuku Raja Rajuandar, S.H., and is based in Jakarta, Indonesia. YAR Law Firm 
-was established on the values of trust, professionalism, and reliability.               </p>
-              <p>
-                We uphold the highest professional standards by providing effective, efficient, and comprehensive 
-legal solutions tailored to our clients needs. We prioritize integrity and meticulousness in handling 
-complex legal matters, ensuring that every legal strategy we provide is appropriate and practical. </p>
-              <p>
-                YAR Law Firm has earned the trust of a diverse range of clients, including government agencies, 
-state-owned enterprises, and both domestic and foreign private companies. Our practice areas 
-cover various sectors such as commercial litigation, handling corruption criminal cases, 
-bankruptcy cases, and debt repayment deferrals.
-              </p>
-              <p>
-                We specialize in representing clients in the banking, mining, insurance, oil and gas, and guarantee 
-sectors, including the healthcare and pharmaceutical industries, as well as advising on general 
-corporate matters.
-              </p>
-                            <p>
-                We believe that our clients’ success is a reflection of our own success. Therefore, YAR Law Firm 
-is committed to being a long-term partner capable of providing innovative, strategic, and reliable 
-legal solutions amidst the ever-changing dynamics of the legal landscape and the business world. 
+                We believe that our clients' success is a reflection of our own success.
+                Therefore, YAR Law Firm is committed to being a long-term partner capable
+                of providing innovative, strategic, and reliable legal solutions amidst
+                the ever-changing dynamics of the legal landscape and the business world.
               </p>
               <p>
                 Over more than a decade of practice and service, YAR Law Firm has received
@@ -72,7 +83,6 @@ legal solutions amidst the ever-changing dynamics of the legal landscape and the
                   Obligations and Bankruptcy
                 </li>
               </ol>
-
             </div>
           </div>
         </article>
