@@ -62,16 +62,24 @@ export default function AchievementSection() {
   }
 
   return (
-    <section className="relative ml-[10%] py-16 md:py-20 overflow-visible bg-white/25 backdrop-blur">
+    <section className="relative ml-[10%] py-16 md:py-20 overflow-hidden bg-white/25 backdrop-blur">
       {/* Header inside max-width container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         <div className="flex items-end justify-between">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">Achievement</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">Achievement</h2>
           </div>
           <div className="flex gap-1">
-            <ArrowButton direction="left" onClick={handlePrev} />
-            <ArrowButton direction="right" onClick={handleNext} />
+            <ArrowButton
+              direction="left"
+              onClick={handlePrev}
+              className="border-white bg-white text-black"
+            />
+            <ArrowButton
+              direction="right"
+              onClick={handleNext}
+              className="border-white bg-white text-black"
+            />
           </div>
         </div>
       </div>
@@ -104,7 +112,7 @@ export default function AchievementSection() {
         onReachEnd={(s) => {
           scheduleRewindToStart(s)
         }}
-        style={{ overflow: 'visible' }}
+        style={{ overflow: 'hidden' }}
       >
         {achievements.map((item, idx) => {
           const isActive = idx === activeIndex

@@ -10,10 +10,17 @@ function Dots({ color = '#d10010' }) {
   )
 }
 
-export default function AttorneysDetailPracticeAreaContactSection({ attorney }) {
+export default function AttorneysDetailPracticeAreaContactSection({ attorney,
+  phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '6287877540196',
+  message = 'Halo, saya ingin melakukan konsultasi hukum dengan YAR Lawfirm. Mohon informasi lebih lanjut mengenai prosedur dan jadwal konsultasinya. Terima kasih.',
+ }) {
   if (!attorney) return null
   const linkedin = attorney.contact?.linkedin?.trim() || '-'
   const email = attorney.contact?.email?.trim() || '-'
+
+  
+  const cleanedNumber = String(phoneNumber).replace(/[^\d]/g, '')
+  const href = `https://wa.me/${cleanedNumber}?text=${encodeURIComponent(message)}`
 
   return (
     <section className="bg-[#f1f4f6] pb-10 md:pb-12">
@@ -73,12 +80,14 @@ export default function AttorneysDetailPracticeAreaContactSection({ attorney }) 
               )}
             </div>
 
-            <button
-              type="button"
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 inline-flex items-center justify-center border border-white px-4 py-2 text-[0.7rem] font-semibold tracking-wide hover:bg-white hover:text-[#08264a] transition-colors"
             >
               SCHEDULE A CONSULTATION
-            </button>
+            </a>
           </article>
         </div>
       </div>

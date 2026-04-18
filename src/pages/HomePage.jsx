@@ -28,7 +28,7 @@ export default function HomePage() {
           <p className="text-white/80 mt-4 max-w-lg text-base md:text-lg">
             Showcasing services such as litigation, business contracts, dispute resolution, and professional consultation.
           </p>
-          <Button variant="outline-white" className="mt-6">
+          <Button variant="outline-white" href="/about" className="mt-6">
             Learn more
           </Button>
         </div>

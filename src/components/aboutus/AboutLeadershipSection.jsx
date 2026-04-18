@@ -43,7 +43,7 @@ export default function AttorneySection() {
             </div>
           </div>
 
-          <div>
+          <div className="overflow-hidden pr-[100vw] -mr-[100vw]">
             <Swiper
               onSwiper={(swiper) => {
                 swiperRef.current = swiper

@@ -28,7 +28,10 @@ export default function AboutStorySection() {
           </div>
 
           <div className="mt-7 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-7 items-start">
-            <div className="space-y-5 text-primary text-[1.05rem] leading-relaxed">
+            <div
+              className="space-y-5 text-primary text-[1.05rem] leading-relaxed"
+              style={{ textAlign: 'justify' }}
+            >
               <p>
                 YAR Law Firm was founded in 2010 by Syamsul Huda Yudha, S.H., M.H., Azhar
                 Rahim Rivai, S.H., M.H., and Teuku Raja Rajuandar, S.H., and is based in
@@ -57,7 +60,10 @@ export default function AboutStorySection() {
               </p>
             </div>
 
-            <div className="space-y-5 text-primary text-[1.05rem] leading-relaxed">
+            <div
+              className="space-y-5 text-primary text-[1.05rem] leading-relaxed"
+              style={{ textAlign: 'justify' }}
+            >
               <p>
                 We believe that our clients' success is a reflection of our own success.
                 Therefore, YAR Law Firm is committed to being a long-term partner capable

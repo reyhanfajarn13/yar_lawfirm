@@ -50,6 +50,20 @@ export default function BlogDetailContentSection({ article }) {
                 <p key={idx}>{paragraph}</p>
               ))}
             </div>
+
+            {(article['source-link'] || article.source_link) && (
+              <p className="mt-6 text-sm text-[#2f343c]">
+                Source:{' '}
+                <a
+                  href={article['source-link'] || article.source_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#8b0000] hover:text-[#a00000] font-medium break-all"
+                >
+                  {article['source-link'] || article.source_link}
+                </a>
+              </p>
+            )}
           </article>
 
           <aside className="space-y-6">

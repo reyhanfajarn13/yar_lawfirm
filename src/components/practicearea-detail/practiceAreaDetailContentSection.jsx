@@ -19,10 +19,16 @@ const DEFAULT_HELP_LIST = [
   'Proven Results',
 ]
 
-export default function PracticeAreaDetailContentSection({ practiceArea }) {
+export default function PracticeAreaDetailContentSection({ practiceArea,
+  phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '6287877540196',
+  message = 'Halo, saya ingin melakukan konsultasi hukum dengan YAR Lawfirm. Mohon informasi lebih lanjut mengenai prosedur dan jadwal konsultasinya. Terima kasih.',
+ }) {
   const helpItems = practiceArea?.howWeCanHelpYou?.length
     ? practiceArea.howWeCanHelpYou
     : DEFAULT_HELP_LIST
+   
+  const cleanedNumber = String(phoneNumber).replace(/[^\d]/g, '')
+  const href = `https://wa.me/${cleanedNumber}?text=${encodeURIComponent(message)}`
 
   return (
     <section className="relative z-20 -mt-[6rem] pb-10 md:-mt-[7.5rem] md:pb-12">
@@ -55,12 +61,14 @@ export default function PracticeAreaDetailContentSection({ practiceArea }) {
               ))}
             </ul>
 
-            <button
-              type="button"
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 inline-flex items-center justify-center border border-[#a00000] px-4 py-2 text-[0.68rem] font-semibold tracking-wide text-[#a00000] hover:bg-[#a00000] hover:text-white transition-colors"
             >
               SCHEDULE A CONSULTATION
-            </button>
+            </a>
           </article>
         </div>
 
@@ -153,4 +161,3 @@ export default function PracticeAreaDetailContentSection({ practiceArea }) {
     </section>
   )
 }
-

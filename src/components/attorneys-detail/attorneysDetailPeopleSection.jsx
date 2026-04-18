@@ -71,6 +71,7 @@ export default function AttorneysDetailPeopleSection({ currentSlug }) {
             </div>
           </div>
 
+        <div className="overflow-hidden pr-[100vw] -mr-[100vw]">
           <Swiper
             onSwiper={(swiper) => {
               swiperRef.current = swiper
@@ -104,6 +105,7 @@ export default function AttorneysDetailPeopleSection({ currentSlug }) {
               </SwiperSlide>
             ))}
           </Swiper>
+        </div>
         </article>
       </div>
     </section>
