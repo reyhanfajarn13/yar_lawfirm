@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { practiceAreas } from '../../data/practiceAreas'
 
 const FALLBACK_IMAGE =
   'https://images.unsplash.com/photo-1453945619913-79ec89a82c51?w=1400&q=80'
+const CONSULTATION_WHATSAPP_NUMBER = '6287877540196'
 
 function Dots() {
   return (
@@ -16,6 +18,64 @@ function Dots() {
 }
 
 export default function BlogDetailContentSection({ article }) {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+    privacyAccepted: true,
+  })
+  const [errors, setErrors] = useState({
+    name: '',
+    message: '',
+    privacyAccepted: '',
+  })
+
+  const handleFieldChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }))
+    setErrors((prev) => ({ ...prev, [field]: '' }))
+  }
+
+  const handleSubmitConsultation = (event) => {
+    event.preventDefault()
+
+    const nextErrors = {
+      name: '',
+      message: '',
+      privacyAccepted: '',
+    }
+
+    if (!formData.name.trim()) {
+      nextErrors.name = 'Your Name is required.'
+    }
+
+    if (!formData.message.trim()) {
+      nextErrors.message = 'Message is required.'
+    }
+
+    if (!formData.privacyAccepted) {
+      nextErrors.privacyAccepted = 'Please agree to the privacy policy.'
+    }
+
+    setErrors(nextErrors)
+    if (nextErrors.name || nextErrors.message || nextErrors.privacyAccepted) return
+
+    const whatsappMessage = [
+      'Hello YAR Law Firm,',
+      `I would like to request a consultation regarding: "${article.title}"`,
+      '',
+      `Name: ${formData.name.trim()}`,
+      formData.email.trim() ? `Email: ${formData.email.trim()}` : null,
+      formData.phone.trim() ? `Phone: ${formData.phone.trim()}` : null,
+      `Message: ${formData.message.trim()}`,
+    ]
+      .filter(Boolean)
+      .join('\n')
+
+    const waHref = `https://wa.me/${CONSULTATION_WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`
+    window.open(waHref, '_blank', 'noopener,noreferrer')
+  }
+
   if (!article) {
     return (
       <section className="relative z-20 -mt-[170px] pb-8 md:-mt-[240px] md:pb-10">
@@ -73,20 +133,27 @@ export default function BlogDetailContentSection({ article }) {
                 Need legal assistance related to this topic? Contact us for a consultation.
               </p>
 
-              <form className="mt-5 space-y-3">
+              <form className="mt-5 space-y-3" onSubmit={handleSubmitConsultation} noValidate>
                 <div>
                   <label className="block text-sm font-medium text-[#2f343c] mb-1">Your Name</label>
                   <input
                     type="text"
                     placeholder="John Doe"
-                    className="w-full border border-[#d1d7de] bg-[#f7f8fa] px-3 py-2 text-sm outline-none focus:border-[#8b0000]"
+                    value={formData.name}
+                    onChange={(e) => handleFieldChange('name', e.target.value)}
+                    className={`w-full border bg-[#f7f8fa] px-3 py-2 text-sm outline-none focus:border-[#8b0000] ${
+                      errors.name ? 'border-[#b00020]' : 'border-[#d1d7de]'
+                    }`}
                   />
+                  {errors.name && <p className="mt-1 text-xs text-[#b00020]">{errors.name}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-[#2f343c] mb-1">Email Address</label>
                   <input
                     type="email"
                     placeholder="John Doe"
+                    value={formData.email}
+                    onChange={(e) => handleFieldChange('email', e.target.value)}
                     className="w-full border border-[#d1d7de] bg-[#f7f8fa] px-3 py-2 text-sm outline-none focus:border-[#8b0000]"
                   />
                 </div>
@@ -95,6 +162,8 @@ export default function BlogDetailContentSection({ article }) {
                   <input
                     type="text"
                     placeholder="John Doe"
+                    value={formData.phone}
+                    onChange={(e) => handleFieldChange('phone', e.target.value)}
                     className="w-full border border-[#d1d7de] bg-[#f7f8fa] px-3 py-2 text-sm outline-none focus:border-[#8b0000]"
                   />
                 </div>
@@ -103,17 +172,30 @@ export default function BlogDetailContentSection({ article }) {
                   <textarea
                     rows={3}
                     placeholder={`I read your blog post "${article.title}" and would like to discuss this further.`}
-                    className="w-full border border-[#d1d7de] bg-[#f7f8fa] px-3 py-2 text-sm outline-none resize-none focus:border-[#8b0000]"
+                    value={formData.message}
+                    onChange={(e) => handleFieldChange('message', e.target.value)}
+                    className={`w-full border bg-[#f7f8fa] px-3 py-2 text-sm outline-none resize-none focus:border-[#8b0000] ${
+                      errors.message ? 'border-[#b00020]' : 'border-[#d1d7de]'
+                    }`}
                   />
+                  {errors.message && <p className="mt-1 text-xs text-[#b00020]">{errors.message}</p>}
                 </div>
 
                 <label className="inline-flex items-center gap-2 text-sm text-[#2f343c]">
-                  <input type="checkbox" defaultChecked className="accent-[#8b0000]" />
+                  <input
+                    type="checkbox"
+                    checked={formData.privacyAccepted}
+                    onChange={(e) => handleFieldChange('privacyAccepted', e.target.checked)}
+                    className="accent-[#8b0000]"
+                  />
                   <span>I agree to the privacy policy</span>
                 </label>
+                {errors.privacyAccepted && (
+                  <p className="-mt-1 text-xs text-[#b00020]">{errors.privacyAccepted}</p>
+                )}
 
                 <button
-                  type="button"
+                  type="submit"
                   className="inline-flex items-center justify-center border border-[#8b0000] text-[#8b0000] px-4 py-2 text-xs font-semibold hover:bg-[#8b0000] hover:text-white transition-colors"
                 >
                   SUBMIT REQUEST
