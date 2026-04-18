@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { practiceAreas } from '../../data/practiceAreas'
+import { useTranslation } from 'react-i18next'
 
 const FALLBACK_IMAGE =
   'https://images.unsplash.com/photo-1453945619913-79ec89a82c51?w=1400&q=80'
@@ -18,6 +19,7 @@ function Dots() {
 }
 
 export default function BlogDetailContentSection({ article }) {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -46,28 +48,28 @@ export default function BlogDetailContentSection({ article }) {
     }
 
     if (!formData.name.trim()) {
-      nextErrors.name = 'Your Name is required.'
+      nextErrors.name = t('blog.detail.form.nameRequired')
     }
 
     if (!formData.message.trim()) {
-      nextErrors.message = 'Message is required.'
+      nextErrors.message = t('blog.detail.form.messageRequired')
     }
 
     if (!formData.privacyAccepted) {
-      nextErrors.privacyAccepted = 'Please agree to the privacy policy.'
+      nextErrors.privacyAccepted = t('blog.detail.form.privacyRequired')
     }
 
     setErrors(nextErrors)
     if (nextErrors.name || nextErrors.message || nextErrors.privacyAccepted) return
 
     const whatsappMessage = [
-      'Hello YAR Law Firm,',
-      `I would like to request a consultation regarding: "${article.title}"`,
+      t('blog.detail.form.whatsappGreeting'),
+      t('blog.detail.form.whatsappIntent', { title: article.title }),
       '',
-      `Name: ${formData.name.trim()}`,
-      formData.email.trim() ? `Email: ${formData.email.trim()}` : null,
-      formData.phone.trim() ? `Phone: ${formData.phone.trim()}` : null,
-      `Message: ${formData.message.trim()}`,
+      t('blog.detail.form.whatsappName', { value: formData.name.trim() }),
+      formData.email.trim() ? t('blog.detail.form.whatsappEmail', { value: formData.email.trim() }) : null,
+      formData.phone.trim() ? t('blog.detail.form.whatsappPhone', { value: formData.phone.trim() }) : null,
+      t('blog.detail.form.whatsappMessage', { value: formData.message.trim() }),
     ]
       .filter(Boolean)
       .join('\n')
@@ -81,7 +83,7 @@ export default function BlogDetailContentSection({ article }) {
       <section className="relative z-20 -mt-[170px] pb-8 md:-mt-[240px] md:pb-10">
         <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[170px] bg-[#e6eaee] md:top-[240px]" />
         <div className="relative max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#f0f1f2] p-8 md:p-12 text-[#2f343c]">Article not found.</div>
+          <div className="bg-[#f0f1f2] p-8 md:p-12 text-[#2f343c]">{t('blog.detail.articleNotFound')}</div>
         </div>
       </section>
     )
@@ -113,7 +115,7 @@ export default function BlogDetailContentSection({ article }) {
 
             {(article['source-link'] || article.source_link) && (
               <p className="mt-6 text-sm text-[#2f343c]">
-                Source:{' '}
+                {t('blog.detail.source')}{' '}
                 <a
                   href={article['source-link'] || article.source_link}
                   target="_blank"
@@ -128,17 +130,17 @@ export default function BlogDetailContentSection({ article }) {
 
           <aside className="space-y-6">
             <article className="bg-[#f0f1f2] px-5 py-6 md:px-6 md:py-7 shadow-[0_8px_20px_rgba(15,23,42,0.08)]">
-              <h3 className="text-2xl font-medium text-[#2f343c]">Legal Consultation</h3>
+              <h3 className="text-2xl font-medium text-[#2f343c]">{t('blog.detail.legalConsultation')}</h3>
               <p className="mt-2 text-sm text-[#4b515a]">
-                Need legal assistance related to this topic? Contact us for a consultation.
+                {t('blog.detail.consultationDesc')}
               </p>
 
               <form className="mt-5 space-y-3" onSubmit={handleSubmitConsultation} noValidate>
                 <div>
-                  <label className="block text-sm font-medium text-[#2f343c] mb-1">Your Name</label>
+                  <label className="block text-sm font-medium text-[#2f343c] mb-1">{t('blog.detail.form.name')}</label>
                   <input
                     type="text"
-                    placeholder="John Doe"
+                    placeholder={t('blog.detail.form.namePlaceholder')}
                     value={formData.name}
                     onChange={(e) => handleFieldChange('name', e.target.value)}
                     className={`w-full border bg-[#f7f8fa] px-3 py-2 text-sm outline-none focus:border-[#8b0000] ${
@@ -148,30 +150,30 @@ export default function BlogDetailContentSection({ article }) {
                   {errors.name && <p className="mt-1 text-xs text-[#b00020]">{errors.name}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#2f343c] mb-1">Email Address</label>
+                  <label className="block text-sm font-medium text-[#2f343c] mb-1">{t('blog.detail.form.email')}</label>
                   <input
                     type="email"
-                    placeholder="John Doe"
+                    placeholder={t('blog.detail.form.emailPlaceholder')}
                     value={formData.email}
                     onChange={(e) => handleFieldChange('email', e.target.value)}
                     className="w-full border border-[#d1d7de] bg-[#f7f8fa] px-3 py-2 text-sm outline-none focus:border-[#8b0000]"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#2f343c] mb-1">Phone Number</label>
+                  <label className="block text-sm font-medium text-[#2f343c] mb-1">{t('blog.detail.form.phone')}</label>
                   <input
                     type="text"
-                    placeholder="John Doe"
+                    placeholder={t('blog.detail.form.phonePlaceholder')}
                     value={formData.phone}
                     onChange={(e) => handleFieldChange('phone', e.target.value)}
                     className="w-full border border-[#d1d7de] bg-[#f7f8fa] px-3 py-2 text-sm outline-none focus:border-[#8b0000]"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#2f343c] mb-1">Message</label>
+                  <label className="block text-sm font-medium text-[#2f343c] mb-1">{t('blog.detail.form.message')}</label>
                   <textarea
                     rows={3}
-                    placeholder={`I read your blog post "${article.title}" and would like to discuss this further.`}
+                    placeholder={t('blog.detail.form.messagePlaceholder', { title: article.title })}
                     value={formData.message}
                     onChange={(e) => handleFieldChange('message', e.target.value)}
                     className={`w-full border bg-[#f7f8fa] px-3 py-2 text-sm outline-none resize-none focus:border-[#8b0000] ${
@@ -188,7 +190,7 @@ export default function BlogDetailContentSection({ article }) {
                     onChange={(e) => handleFieldChange('privacyAccepted', e.target.checked)}
                     className="accent-[#8b0000]"
                   />
-                  <span>I agree to the privacy policy</span>
+                  <span>{t('blog.detail.form.privacy')}</span>
                 </label>
                 {errors.privacyAccepted && (
                   <p className="-mt-1 text-xs text-[#b00020]">{errors.privacyAccepted}</p>
@@ -198,13 +200,13 @@ export default function BlogDetailContentSection({ article }) {
                   type="submit"
                   className="inline-flex items-center justify-center border border-[#8b0000] text-[#8b0000] px-4 py-2 text-xs font-semibold hover:bg-[#8b0000] hover:text-white transition-colors"
                 >
-                  SUBMIT REQUEST
+                  {t('blog.detail.form.submit')}
                 </button>
               </form>
             </article>
 
             <article className="bg-[#2f3135] px-5 py-6 md:px-6 md:py-7 text-white shadow-[0_8px_20px_rgba(15,23,42,0.2)]">
-              <h3 className="text-2xl font-medium">Practice Areas</h3>
+              <h3 className="text-2xl font-medium">{t('blog.detail.practiceAreasTitle')}</h3>
               <ul className="mt-4 space-y-2.5">
                 {practiceAreas.map((area) => (
                   <li key={area.id}>

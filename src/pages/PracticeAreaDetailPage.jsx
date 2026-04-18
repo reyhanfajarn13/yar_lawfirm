@@ -6,10 +6,13 @@ import PracticeAreaDetailHeroSection from '../components/practicearea-detail/pra
 import PracticeAreaDetailContentSection from '../components/practicearea-detail/practiceAreaDetailContentSection'
 import PracticeAreaDetailPeopleSection from '../components/practicearea-detail/practiceAreaDetailPeopleSection'
 import { practiceAreas } from '../data/practiceAreas'
+import { useTranslation } from 'react-i18next'
 
 export default function PracticeAreaDetailPage() {
+  const { t } = useTranslation()
   const { slug } = useParams()
   const practiceArea = practiceAreas.find((item) => item.slug === slug)
+  const practiceAreaName = practiceArea?.name || t('pages.practiceAreaDetail.notFound')
 
   return (
     <>
@@ -24,13 +27,15 @@ export default function PracticeAreaDetailPage() {
           <div className="grid grid-cols-1 items-end gap-12">
             <div className="pb-6">
               <p className="text-white/80 mt-4 text-sm md:text-base">
-                Home | Practice Areas | {practiceArea ? practiceArea.name : 'Practice Area Not Found'}
+                {t('pages.practiceAreas.breadcrumb')} | {practiceAreaName}
               </p>
               <h1 className="mt-3 text-white text-4xl md:text-5xl lg:text-[3rem] xl:text-[3.4rem] font-light leading-tight max-w-4xl">
-                {practiceArea ? practiceArea.name : 'Practice Area Not Found'}
+                {practiceAreaName}
               </h1>
               <p className="text-white/80 mt-4 text-sm md:text-base max-w-2xl">
-                Expert legal support by our experienced team in {practiceArea ? practiceArea.name : 'this practice area'}.
+                {practiceArea
+                  ? t('pages.practiceAreaDetail.support', { name: practiceArea.name })
+                  : t('pages.practiceAreaDetail.supportFallback')}
               </p>
             </div>
           </div>

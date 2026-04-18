@@ -2,11 +2,13 @@ import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import 'swiper/css'
 
 import { attorneys } from '../../data/attorneys'
 
 export default function AttorneySection() {
+  const { t } = useTranslation()
   const swiperRef = useRef(null)
 
   return (
@@ -17,13 +19,13 @@ export default function AttorneySection() {
         <div className="relative bg-[#f1f2f3] px-5 py-8 md:px-10 md:py-10 after:pointer-events-none after:absolute after:bottom-0 after:left-full after:top-0 after:w-screen after:bg-[#f1f2f3]">
           <div className="mb-8 flex items-center justify-between md:mb-10">
             <h2 className="text-4xl font-light leading-tight text-[#2e3239] md:text-[3.15rem]">
-              Our Expert Attorney
+              {t('home.attorney.title')}
             </h2>
 
             <div className="flex gap-3">
               <button
                 type="button"
-                aria-label="Previous attorney"
+                aria-label={t('home.attorney.previous')}
                 onClick={() => swiperRef.current?.slidePrev()}
                 className="flex h-12 w-12 items-center justify-center border border-[#383d44] text-[#30353c] transition-colors hover:bg-[#30353c] hover:text-white"
               >
@@ -31,7 +33,7 @@ export default function AttorneySection() {
               </button>
               <button
                 type="button"
-                aria-label="Next attorney"
+                aria-label={t('home.attorney.next')}
                 onClick={() => swiperRef.current?.slideNext()}
                 className="flex h-12 w-12 items-center justify-center border border-[#383d44] text-[#30353c] transition-colors hover:bg-[#30353c] hover:text-white"
               >

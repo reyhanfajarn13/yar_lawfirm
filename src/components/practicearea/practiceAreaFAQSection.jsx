@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Plus } from 'lucide-react'
-import { practiceAreaFaqs } from '../../data/practiceAreaFAQ.js'
+import { useTranslation } from 'react-i18next'
 
 function Dots() {
   return (
@@ -13,7 +13,9 @@ function Dots() {
 }
 
 export default function PracticeAreaFAQSection() {
+  const { t } = useTranslation()
   const [openId, setOpenId] = useState(null)
+  const practiceAreaFaqs = t('practiceArea.faq.items', { returnObjects: true })
 
   const handleToggle = (id) => {
     setOpenId((prev) => (prev === id ? null : id))
@@ -26,20 +28,22 @@ export default function PracticeAreaFAQSection() {
           <Dots />
 
           <h2 className="mt-5 text-2xl md:text-[2.15rem] font-medium leading-tight text-[#2f343c]">
-            Frequently Asked Questions
+            {t('practiceArea.faq.title')}
           </h2>
           <p className="mt-2 text-[#454a52] text-base">
-            Common questions about our legal services and practice areas
+            {t('practiceArea.faq.description')}
           </p>
 
           <div className="mt-7 border-t border-[#d9dde1]">
-            {practiceAreaFaqs.map((faq) => (
-              <div key={faq.id} className="border-b border-[#d9dde1]">
+            {practiceAreaFaqs.map((faq, idx) => {
+              const faqId = idx + 1
+              return (
+              <div key={faqId} className="border-b border-[#d9dde1]">
                 <button
                   type="button"
-                  onClick={() => handleToggle(faq.id)}
-                  aria-expanded={openId === faq.id}
-                  aria-controls={`practice-area-faq-${faq.id}`}
+                  onClick={() => handleToggle(faqId)}
+                  aria-expanded={openId === faqId}
+                  aria-controls={`practice-area-faq-${faqId}`}
                   className="w-full py-4 text-left flex items-center justify-between gap-4"
                 >
                   <span className="text-[0.97rem] text-[#353a42] leading-relaxed">
@@ -48,16 +52,16 @@ export default function PracticeAreaFAQSection() {
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ef3e57] text-white flex-shrink-0">
                     <Plus
                       className={`h-4 w-4 transition-transform duration-300 ${
-                        openId === faq.id ? 'rotate-45' : 'rotate-0'
+                        openId === faqId ? 'rotate-45' : 'rotate-0'
                       }`}
                     />
                   </span>
                 </button>
 
                 <div
-                  id={`practice-area-faq-${faq.id}`}
+                  id={`practice-area-faq-${faqId}`}
                   className={`grid transition-all duration-300 ${
-                    openId === faq.id ? 'grid-rows-[1fr] pb-4' : 'grid-rows-[0fr]'
+                    openId === faqId ? 'grid-rows-[1fr] pb-4' : 'grid-rows-[0fr]'
                   }`}
                 >
                   <div className="overflow-hidden">
@@ -67,7 +71,7 @@ export default function PracticeAreaFAQSection() {
                   </div>
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </article>
       </div>

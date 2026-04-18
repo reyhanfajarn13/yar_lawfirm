@@ -1,5 +1,7 @@
-﻿import Button from '../ui/Button'
-import { articles } from '../../data/articles'
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import Button from '../ui/Button'
+import { getArticles } from '../../data/articles'
 
 const EXCERPT_MAX_CHARS = 200
 
@@ -91,11 +93,12 @@ function DarkCard({ article }) {
 }
 
 export default function ArticleSection() {
-  const [featureArticle, topRightArticle, bottomLeftArticle, bottomCenterArticle, darkArticle] = articles
+  const { t, i18n } = useTranslation()
+  const localizedArticles = useMemo(() => getArticles(i18n.language), [i18n.language])
+  const [featureArticle, topRightArticle, bottomLeftArticle, bottomCenterArticle, darkArticle] = localizedArticles
 
   return (
     <section className="relative overflow-hidden py-16 md:py-20 px-[10%]">
-
       <div className="relative max-w-[1320px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1.06fr] gap-6 lg:gap-7">
           <div className="space-y-6 lg:space-y-7">
@@ -115,11 +118,10 @@ export default function ArticleSection() {
 
         <div className="mt-10">
           <Button variant="outline-white" href="/blog">
-            Browse all article
+            {t('home.article.browseAll')}
           </Button>
         </div>
       </div>
     </section>
   )
 }
-

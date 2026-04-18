@@ -8,8 +8,11 @@ import AttorneySection from '../components/home/AttorneySection'
 import ClientSection from '../components/home/ClientSection'
 import CTASection from '../components/home/CTASection'
 import Footer from '../components/layout/Footer'
+import { useTranslation } from 'react-i18next'
 
 export default function HomePage() {
+  const { t } = useTranslation()
+
   return (
     <>
       {/* Navbar — fixed di atas segalanya */}
@@ -23,13 +26,13 @@ export default function HomePage() {
       <div className="-mt-[115vh] mb-[15vh] h-screen relative z-[5] flex items-end pointer-events-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 w-full pointer-events-auto">
           <h1 className="text-white text-7xl md:text-6xl lg:text-7xl font-extrabold leading-tight max-w-xl">
-            Excellence in Every Legal Step
+            {t('home.hero.title')}
           </h1>
           <p className="text-white/80 mt-4 max-w-lg text-base md:text-lg">
-            Showcasing services such as litigation, business contracts, dispute resolution, and professional consultation.
+            {t('home.hero.description')}
           </p>
           <Button variant="outline-white" href="/about" className="mt-6">
-            Learn more
+            {t('home.hero.learnMore')}
           </Button>
         </div>
       </div>

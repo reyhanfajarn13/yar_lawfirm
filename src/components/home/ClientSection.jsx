@@ -1,6 +1,8 @@
 import { clients } from '../../data/clients'
+import { useTranslation } from 'react-i18next'
 
 export default function ClientSection() {
+  const { t } = useTranslation()
   const leftRowClients = clients.filter((client) => client.id >= 1 && client.id <= 6)
   const rightRowClients = clients.filter((client) => client.id >= 7 && client.id <= 12)
 
@@ -30,10 +32,10 @@ export default function ClientSection() {
     <section className="py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-light text-primary mb-3">
-          Trusted by Leading Clients
+          {t('home.client.title')}
         </h2>
         <p className="text-secondary mb-12">
-          We are proud to serve these distinguished clients
+          {t('home.client.description')}
         </p>
       </div>
       <div className="relative left-1/2 right-1/2 mt-2 w-screen -translate-x-1/2 space-y-6">

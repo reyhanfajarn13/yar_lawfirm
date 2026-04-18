@@ -2,6 +2,7 @@ import { useMemo, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import 'swiper/css'
 
 import { attorneys } from '../../data/attorneys'
@@ -17,6 +18,7 @@ function Dots() {
 }
 
 export default function AttorneysDetailPeopleSection({ currentSlug }) {
+  const { t } = useTranslation()
   const swiperRef = useRef(null)
 
   const otherAttorneys = useMemo(() => {
@@ -44,17 +46,17 @@ export default function AttorneysDetailPeopleSection({ currentSlug }) {
             <div>
               <Dots />
               <h2 className="mt-4 text-2xl md:text-[2rem] font-medium leading-tight text-[#2f343c]">
-                Meet Other Attorney
+                {t('attorneyDetail.people.title')}
               </h2>
               <p className="mt-2 text-sm text-[#4a5059]">
-                Our experienced attorneys are ready to help you
+                {t('attorneyDetail.people.subtitle')}
               </p>
             </div>
 
             <div className="hidden md:flex gap-2">
               <button
                 type="button"
-                aria-label="Previous attorney"
+                aria-label={t('attorneyDetail.people.previous')}
                 onClick={handlePrev}
                 className="flex h-8 w-8 items-center justify-center border border-[#5a6068] text-[#3b4048] transition-colors hover:bg-[#3b4048] hover:text-white"
               >
@@ -62,7 +64,7 @@ export default function AttorneysDetailPeopleSection({ currentSlug }) {
               </button>
               <button
                 type="button"
-                aria-label="Next attorney"
+                aria-label={t('attorneyDetail.people.next')}
                 onClick={handleNext}
                 className="flex h-8 w-8 items-center justify-center border border-[#5a6068] text-[#3b4048] transition-colors hover:bg-[#3b4048] hover:text-white"
               >

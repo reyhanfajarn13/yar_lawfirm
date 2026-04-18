@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { practiceAreas } from '../../data/practiceAreas'
+import { useTranslation } from 'react-i18next'
 
 function crop(text, maxChars) {
   if (!text || text.length <= maxChars) return text
@@ -18,6 +19,8 @@ function Dots() {
 }
 
 export default function PracticeAreaOccupationSection() {
+  const { t } = useTranslation()
+
   return (
     <section className="relative z-20 -mt-[170px] pb-8 md:-mt-[260px] md:pb-10">
       <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[170px] bg-[#e6eaee] md:top-[260px]" />
@@ -27,11 +30,10 @@ export default function PracticeAreaOccupationSection() {
           <Dots />
 
           <h2 className="mt-5 text-2xl md:text-[2rem] font-medium leading-tight text-[#2f343c]">
-            Our Practice Areas
+            {t('practiceArea.occupation.title')}
           </h2>
           <p className="mt-3 text-[#3a4048] text-base md:text-[1.05rem]">
-            Lorem ipsum dolor sit amet consectetur. At dictumst vulputate dictum ut a non purus
-            scelerisque.
+            {t('practiceArea.occupation.description')}
           </p>
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-x-8 gap-y-10">

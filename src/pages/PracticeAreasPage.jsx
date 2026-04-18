@@ -6,8 +6,11 @@ import PracticeAreaHeroSection from '../components/practicearea/practiceAreaHero
 import PracticeAreaOccupationSection from '../components/practicearea/practiceAreaOccupationSection'
 import PracticeAreaWhyChooseUseSection from '../components/practicearea/practiceAreaWhyChooseUseSection'
 import PracticeAreaFAQSection from '../components/practicearea/practiceAreaFAQSection.jsx'
+import { useTranslation } from 'react-i18next'
 
 export default function PracticeAreasPage() {
+  const { t } = useTranslation()
+
   return (
     <>
       <Navbar />
@@ -19,17 +22,16 @@ export default function PracticeAreasPage() {
       <div className="-mt-[135vh] mb-[25vh] h-screen relative z-[5] flex items-end pointer-events-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 w-full pointer-events-auto">
           <p className="text-white/80 mt-4 max-w-2xl text-base md:text-lg">
-            Home | Practice Areas
+            {t('pages.practiceAreas.breadcrumb')}
           </p>
           <h1 className="text-white text-7xl md:text-6xl lg:text-7xl font-thin tracking-widest leading-tight max-w-2xl">
-            Practice Areas
+            {t('pages.practiceAreas.title')}
           </h1>
           <p className="text-white/80 mt-4 max-w-2xl text-base md:text-lg">
-            Learn more about our firm, our legal philosophy, and the people behind every solution we
-            deliver.
+            {t('pages.practiceAreas.description')}
           </p>
           <Button variant="outline-white" href="/attorneys" className="mt-6">
-            Meet our team
+            {t('pages.practiceAreas.meetTeam')}
           </Button>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+
 function Dots() {
   return (
     <div className="flex items-center gap-4">
@@ -9,13 +11,15 @@ function Dots() {
 }
 
 export default function AttorneysDetailAboutMeSection({ attorney }) {
+  const { t } = useTranslation()
+
   if (!attorney) {
     return (
       <section className="relative z-20 -mt-[6rem] pb-8 md:-mt-[7.5rem] md:pb-10">
         <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[6rem] bg-white md:top-[7.5rem]" />
         <div className="relative max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
           <article className="bg-[#ffffff] px-6 py-8 md:px-8 md:py-9 shadow-[0_10px_24px_rgba(15,23,42,0.14)]">
-            <h2 className="text-2xl font-medium text-[#2f343c]">Attorney not found</h2>
+            <h2 className="text-2xl font-medium text-[#2f343c]">{t('attorneyDetail.aboutMe.notFound')}</h2>
           </article>
         </div>
       </section>
@@ -31,7 +35,7 @@ export default function AttorneysDetailAboutMeSection({ attorney }) {
           <Dots />
 
           <h2 className="mt-4 text-2xl md:text-[2rem] font-medium leading-tight text-[#2f343c]">
-            About Me
+            {t('attorneyDetail.aboutMe.title')}
           </h2>
 
           <p className="mt-4 text-[0.98rem] md:text-[1.03rem] leading-relaxed text-[#3d424a] max-w-6xl">

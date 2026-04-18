@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import { ArrowRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import 'swiper/css'
 
 import ArrowButton from '../ui/ArrowButton'
@@ -15,6 +16,7 @@ const NORMAL_SLIDE_SPEED = 600
 const REWIND_SPEED = 220
 
 export default function AchievementSection() {
+  const { t } = useTranslation()
   const swiperRef = useRef(null)
   const rewindTimerRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(FIRST_SLIDE_INDEX)
@@ -67,7 +69,7 @@ export default function AchievementSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         <div className="flex items-end justify-between">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white">Achievement</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">{t('home.achievement.title')}</h2>
           </div>
           <div className="flex gap-1">
             <ArrowButton

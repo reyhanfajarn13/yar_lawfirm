@@ -1,0 +1,244 @@
+﻿{
+  "navbar": {
+    "links": {
+      "home": "Beranda",
+      "about": "Tentang Kami",
+      "practiceAreas": "Area Praktik",
+      "attorneys": "Pengacara",
+      "blog": "Blog"
+    },
+    "language": {
+      "select": "Pilih bahasa",
+      "indonesia": "Indonesia",
+      "english": "Inggris"
+    },
+    "emailAria": "Email YAR Law Firm"
+  },
+  "footer": {
+    "quickLinks": "Tautan Cepat",
+    "practiceArea": "Area Praktik",
+    "companyDescription": "YAR Law Firm, berdiri sejak tahun 2010, memberikan layanan hukum profesional bagi klien korporasi maupun individu mulai dari konsultasi dan penyusunan kontrak hingga penyelesaian sengketa. Dengan fondasi profesionalisme dan integritas, kami dipercaya berbagai institusi dan diakui sebagai salah satu Top 100 Indonesian Law Firms versi Hukumonline.",
+    "phoneVolta": "Volta: +62 878-7754-0196",
+    "phoneThareq": "Thareq: +62 858-0887-2026",
+    "workHours": "Senin - Jumat: 09.00 - 17.00",
+    "copyright": "(c) 2026 Law Firm Yar. Seluruh hak cipta dilindungi."
+  },
+  "home": {
+    "hero": {
+      "title": "Keunggulan di Setiap Langkah Hukum",
+      "description": "Menampilkan layanan seperti litigasi, kontrak bisnis, penyelesaian sengketa, dan konsultasi profesional.",
+      "learnMore": "Pelajari lebih lanjut"
+    },
+    "achievement": {
+      "title": "Pencapaian"
+    },
+    "article": {
+      "browseAll": "Lihat semua artikel"
+    },
+    "practiceArea": {
+      "title": "Area Praktik Kami",
+      "description": "Kami menyediakan layanan hukum komprehensif di berbagai area praktik untuk memenuhi kebutuhan spesifik Anda.",
+      "learnMore": "Pelajari lebih lanjut"
+    },
+    "attorney": {
+      "title": "Pengacara Ahli Kami",
+      "previous": "Pengacara sebelumnya",
+      "next": "Pengacara berikutnya"
+    },
+    "client": {
+      "title": "Dipercaya Klien Terkemuka",
+      "description": "Kami bangga melayani klien-klien terhormat berikut"
+    }
+  },
+  "cta": {
+    "title": "Butuh Bantuan Hukum? Hubungi Kami Hari Ini!",
+    "description": "Jadwalkan konsultasi gratis dengan pengacara berpengalaman kami untuk membahas kebutuhan hukum Anda.",
+    "button": "Hubungi kami sekarang",
+    "whatsappMessage": "Halo, saya ingin melakukan konsultasi hukum dengan YAR Lawfirm. Mohon informasi lebih lanjut mengenai prosedur dan jadwal konsultasinya. Terima kasih."
+  },
+  "floatingWhatsapp": {
+    "ariaLabel": "Chat via WhatsApp",
+    "message": "Halo, saya ingin melakukan konsultasi hukum dengan YAR Lawfirm. Mohon informasi lebih lanjut mengenai prosedur dan jadwal konsultasinya. Terima kasih."
+  },
+  "pages": {
+    "about": {
+      "breadcrumb": "Beranda | Tentang Kami",
+      "title": "Tentang Kami",
+      "description": "Pelajari lebih lanjut tentang firma kami, filosofi hukum kami, dan tim di balik setiap solusi yang kami berikan.",
+      "meetTeam": "Temui tim kami"
+    },
+    "practiceAreas": {
+      "breadcrumb": "Beranda | Area Praktik",
+      "title": "Area Praktik",
+      "description": "Pelajari lebih lanjut tentang firma kami, filosofi hukum kami, dan tim di balik setiap solusi yang kami berikan.",
+      "meetTeam": "Temui tim kami"
+    },
+    "attorneys": {
+      "breadcrumb": "Beranda | Pengacara",
+      "title": "Pengacara Kami",
+      "description": "Temui tim profesional hukum berpengalaman kami yang berdedikasi memberikan representasi terbaik."
+    },
+    "blog": {
+      "breadcrumb": "Beranda | Blog",
+      "title": "Blog",
+      "description": "Wawasan hukum, kabar firma, dan saran ahli dari para pengacara berpengalaman kami."
+    },
+    "practiceAreaDetail": {
+      "notFound": "Area Praktik Tidak Ditemukan",
+      "support": "Dukungan hukum ahli dari tim berpengalaman kami di bidang {{name}}.",
+      "supportFallback": "Dukungan hukum ahli dari tim berpengalaman kami di area praktik ini."
+    },
+    "attorneyDetail": {
+      "notFound": "Pengacara Tidak Ditemukan",
+      "na": "N/A"
+    },
+    "blogDetail": {
+      "notFound": "Artikel Tidak Ditemukan",
+      "unknownAuthor": "Penulis Tidak Diketahui",
+      "na": "N/A"
+    }
+  },
+  "blog": {
+    "articles": {
+      "admin": "Admin",
+      "readMore": "Baca selengkapnya"
+    },
+    "detail": {
+      "articleNotFound": "Artikel tidak ditemukan.",
+      "source": "Sumber:",
+      "legalConsultation": "Konsultasi Hukum",
+      "consultationDesc": "Butuh bantuan hukum terkait topik ini? Hubungi kami untuk konsultasi.",
+      "form": {
+        "name": "Nama Anda",
+        "email": "Alamat Email",
+        "phone": "Nomor Telepon",
+        "message": "Pesan",
+        "privacy": "Saya setuju dengan kebijakan privasi",
+        "submit": "KIRIM PERMINTAAN",
+        "nameRequired": "Nama Anda wajib diisi.",
+        "messageRequired": "Pesan wajib diisi.",
+        "privacyRequired": "Mohon setujui kebijakan privasi.",
+        "namePlaceholder": "John Doe",
+        "emailPlaceholder": "John Doe",
+        "phonePlaceholder": "John Doe",
+        "messagePlaceholder": "Saya membaca artikel blog Anda \"{{title}}\" dan ingin mendiskusikannya lebih lanjut.",
+        "whatsappGreeting": "Halo YAR Law Firm,",
+        "whatsappIntent": "Saya ingin mengajukan konsultasi terkait: \"{{title}}\"",
+        "whatsappName": "Nama: {{value}}",
+        "whatsappEmail": "Email: {{value}}",
+        "whatsappPhone": "Telepon: {{value}}",
+        "whatsappMessage": "Pesan: {{value}}"
+      },
+      "practiceAreasTitle": "Area Praktik"
+    }
+  },
+  "practiceArea": {
+    "occupation": {
+      "title": "Area Praktik Kami",
+      "description": "Kami melayani berbagai bidang hukum untuk memberikan solusi yang tepat dan strategis sesuai kebutuhan Anda."
+    },
+    "whyChoose": {
+      "title": "Mengapa Memilih Layanan Hukum Kami",
+      "description": "Kami berdedikasi memberikan pendampingan hukum yang unggul",
+      "reasons": [
+        {
+          "title": "Pengacara Berpengalaman",
+          "description": "Tim kami terdiri dari pengacara berpengalaman dengan keahlian di bidang masing-masing, sehingga penanganan perkara Anda dilakukan secara profesional."
+        },
+        {
+          "title": "Solusi Hukum yang Tepat",
+          "description": "Kami memahami setiap situasi klien itu unik, sehingga strategi hukum disusun secara khusus sesuai kebutuhan dan tujuan Anda."
+        },
+        {
+          "title": "Pendekatan Berpusat pada Klien",
+          "description": "Kami mengutamakan kepentingan klien serta menjaga komunikasi terbuka sepanjang proses hukum agar Anda selalu terinformasi."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Pertanyaan yang Sering Diajukan",
+      "description": "Pertanyaan umum tentang layanan hukum dan area praktik kami",
+      "items": [
+        {
+          "question": "Layanan hukum apa saja yang termasuk dalam pendampingan YAR Law Firm?",
+          "answer": "Kami menangani litigasi komersial, perkara tindak pidana korporasi, sengketa ketenagakerjaan, pendampingan aktivitas usaha, konstruksi, sengketa tata usaha negara, serta kepailitan/PKPU. Ruang lingkup layanan disesuaikan dengan kebutuhan setiap klien, baik korporasi maupun individu."
+        },
+        {
+          "question": "Apakah saya bisa melakukan konsultasi awal sebelum menunjuk kuasa hukum?",
+          "answer": "Bisa. Anda dapat memulai dengan konsultasi awal untuk memetakan isu hukum, risiko, dan opsi strategi. Setelah itu kami akan merekomendasikan langkah lanjutan termasuk ruang lingkup pendampingan serta estimasi waktu."
+        },
+        {
+          "question": "Dokumen apa yang perlu disiapkan saat konsultasi pertama?",
+          "answer": "Dokumen yang membantu antara lain kronologi singkat, kontrak/perjanjian terkait, korespondensi, catatan transaksi, serta dokumen resmi lain yang berhubungan dengan perkara Anda. Tim kami akan memberikan daftar yang lebih spesifik setelah asesmen awal."
+        },
+        {
+          "question": "Berapa lama umumnya penyelesaian perkara hukum?",
+          "answer": "Durasi bergantung pada jenis perkara, kompleksitas fakta, serta forum penyelesaian (negosiasi, mediasi, arbitrase, atau litigasi). Di awal pendampingan, kami menyiapkan timeline kerja agar ekspektasi tetap jelas."
+        },
+        {
+          "question": "Apakah YAR Law Firm melayani klien korporasi dan individu?",
+          "answer": "Ya. Kami mewakili klien korporasi maupun individu, termasuk UMKM, perusahaan nasional, hingga entitas publik. Pendekatan kami disesuaikan dengan profil bisnis, tujuan hukum, dan tingkat urgensi masing-masing klien."
+        }
+      ]
+    },
+    "detail": {
+      "storyTitle": "Cerita Kami",
+      "storyFallback": "Detail area praktik belum tersedia.",
+      "helpTitle": "Bagaimana Kami Dapat Membantu Anda",
+      "scheduleButton": "JADWALKAN KONSULTASI",
+      "requestTitle": "Ajukan Konsultasi",
+      "requestDesc": "Sampaikan persoalan hukum Anda, dan tim kami akan menghubungi Anda dengan strategi yang jelas sesuai konteks bisnis maupun sengketa Anda.",
+      "yourName": "Nama Anda",
+      "email": "Alamat Email",
+      "phone": "Nomor Telepon",
+      "caseBrief": "Deskripsi Singkat Kasus Anda",
+      "casePlaceholder": "Jelaskan persoalan hukum Anda secara singkat agar kami dapat memahami kebutuhan Anda dengan lebih baik.",
+      "privacy": "Saya setuju dengan kebijakan privasi",
+      "submit": "KIRIM PERMINTAAN",
+      "expertiseTitle": "Keahlian Kami",
+      "defaultHelpList": [
+        "Strategi Hukum yang Personal",
+        "Komunikasi yang Jelas",
+        "Representasi yang Andal",
+        "Hasil yang Terbukti"
+      ],
+      "whatsappMessage": "Halo, saya ingin melakukan konsultasi hukum dengan YAR Lawfirm. Mohon informasi lebih lanjut mengenai prosedur dan jadwal konsultasinya. Terima kasih."
+    }
+  },
+  "attorneys": {
+    "people": {
+      "title": "Pengacara Kami",
+      "showing": "Menampilkan {{count}} profil pengacara."
+    },
+    "joinTeam": {
+      "title": "Bergabung dengan Tim Kami",
+      "description": "YAR Law Firm selalu mencari profesional hukum berbakat untuk bergabung dengan tim kami. Kami menawarkan lingkungan kerja kolaboratif, benefit kompetitif, serta peluang pengembangan karier.",
+      "whyTitle": "Mengapa Bergabung Dengan Kami?",
+      "benefits": [
+        "Pengembangan Profesional",
+        "Kompensasi Kompetitif",
+        "Keseimbangan Kerja dan Hidup",
+        "Lingkungan Kolaboratif"
+      ]
+    }
+  },
+  "attorneyDetail": {
+    "aboutMe": {
+      "title": "Tentang Saya",
+      "notFound": "Pengacara tidak ditemukan"
+    },
+    "contact": {
+      "practiceAreasTitle": "Area Praktik",
+      "contactTitle": "Kontak",
+      "scheduleButton": "JADWALKAN KONSULTASI",
+      "whatsappMessage": "Halo, saya ingin melakukan konsultasi hukum dengan YAR Lawfirm. Mohon informasi lebih lanjut mengenai prosedur dan jadwal konsultasinya. Terima kasih."
+    },
+    "people": {
+      "title": "Temui Pengacara Lainnya",
+      "subtitle": "Pengacara berpengalaman kami siap membantu Anda",
+      "previous": "Pengacara sebelumnya",
+      "next": "Pengacara berikutnya"
+    }
+  }
+}
+

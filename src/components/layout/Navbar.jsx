@@ -2,29 +2,32 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ChevronDown, Mail, Menu, X } from 'lucide-react'
 import { ID, US } from 'country-flag-icons/react/3x2'
+import { useTranslation } from 'react-i18next'
 import redIconYarlaw from '../../assets/icons/red-icon-yarlaw.png'
 import whiteIconYarlaw from '../../assets/icons/white-icon-yarlaw.png'
 
 const navLinks = [
-  { label: 'Home', path: '/' },
-  { label: 'About Us', path: '/about' },
-  { label: 'Practice Areas', path: '/practice-areas' },
-  { label: 'Attorneys', path: '/attorneys' },
-  { label: 'Blog', path: '/blog' },
+  { key: 'home', path: '/' },
+  { key: 'about', path: '/about' },
+  { key: 'practiceAreas', path: '/practice-areas' },
+  { key: 'attorneys', path: '/attorneys' },
+  { key: 'blog', path: '/blog' },
 ]
 
 const LANGUAGE_OPTIONS = {
-  id: { code: 'ID', label: 'Indonesia', Flag: ID, htmlLang: 'id' },
-  en: { code: 'EN', label: 'English', Flag: US, htmlLang: 'en' },
+  id: { code: 'ID', labelKey: 'navbar.language.indonesia', Flag: ID },
+  en: { code: 'EN', labelKey: 'navbar.language.english', Flag: US },
 }
 
 export default function Navbar() {
+  const { t, i18n } = useTranslation()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [languageOpen, setLanguageOpen] = useState(false)
-  const [language, setLanguage] = useState('id')
   const languageMenuRef = useRef(null)
   const location = useLocation()
+
+  const language = i18n.language?.startsWith('en') ? 'en' : 'id'
   const isHomePage = location.pathname === '/'
   const logoSrc = isHomePage || scrolled ? redIconYarlaw : whiteIconYarlaw
   const ActiveLanguageFlag = LANGUAGE_OPTIONS[language].Flag
@@ -36,19 +39,8 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    const savedLanguage = window.localStorage.getItem('site-language')
-    if (savedLanguage && LANGUAGE_OPTIONS[savedLanguage]) {
-      setLanguage(savedLanguage)
-    }
-  }, [])
-
-  useEffect(() => {
-    window.localStorage.setItem('site-language', language)
-    document.documentElement.lang = LANGUAGE_OPTIONS[language].htmlLang
-  }, [language])
-
-  useEffect(() => {
     if (!languageOpen) return
+
     const handleClickOutside = (event) => {
       if (languageMenuRef.current && !languageMenuRef.current.contains(event.target)) {
         setLanguageOpen(false)
@@ -59,21 +51,13 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [languageOpen])
 
-  useEffect(() => {
-    setMobileOpen(false)
-    setLanguageOpen(false)
-  }, [location.pathname])
-
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white shadow-md'
-          : 'bg-white/0'
+        scrolled ? 'bg-white shadow-md' : 'bg-white/0'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
-        {/* Logo */}
         <Link to="/" className="flex items-center">
           <img
             src={logoSrc}
@@ -83,12 +67,15 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Desktop Nav Links */}
         <ul className="hidden md:flex gap-8 text-sm font-medium">
           {navLinks.map((link) => (
             <li key={link.path}>
               <Link
                 to={link.path}
+                onClick={() => {
+                  setMobileOpen(false)
+                  setLanguageOpen(false)
+                }}
                 className={`pb-1 transition-colors ${
                   location.pathname === link.path
                     ? scrolled
@@ -99,31 +86,30 @@ export default function Navbar() {
                       : 'text-white hover:text-white hover:border-b-2 border-[#8B0000]'
                 }`}
               >
-                {link.label}
+                {t(`navbar.links.${link.key}`)}
               </Link>
             </li>
           ))}
         </ul>
 
-        {/* Icons */}
         <div className="flex items-center gap-4">
           <div className="relative" ref={languageMenuRef}>
             <button
               type="button"
               onClick={() => setLanguageOpen((prev) => !prev)}
               className={`flex items-center gap-1.5 rounded-md px-2 py-1 text-xs font-semibold transition-colors ${
-                scrolled
-                  ? 'text-primary'
-                  : 'text-white'
+                scrolled ? 'text-primary' : 'text-white'
               }`}
-              aria-label="Select language"
+              aria-label={t('navbar.language.select')}
               aria-expanded={languageOpen}
             >
               <span className="flex h-3.5 w-5 overflow-hidden rounded-[2px]" aria-hidden="true">
                 <ActiveLanguageFlag className="h-full w-full object-cover" />
               </span>
               <span>{LANGUAGE_OPTIONS[language].code}</span>
-              <ChevronDown className={`h-3.5 w-3.5 transition-transform ${languageOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown
+                className={`h-3.5 w-3.5 transition-transform ${languageOpen ? 'rotate-180' : ''}`}
+              />
             </button>
 
             {languageOpen && (
@@ -131,40 +117,39 @@ export default function Navbar() {
                 {Object.entries(LANGUAGE_OPTIONS).map(([key, option]) => {
                   const OptionFlag = option.Flag
                   return (
-                  <button
-                    key={key}
-                    type="button"
-                    onClick={() => {
-                      setLanguage(key)
-                      setLanguageOpen(false)
-                    }}
-                    className={`flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-sm transition-colors ${
-                      language === key
-                        ? 'bg-[#f3f5f7] text-primary'
-                        : 'text-[#444b55] hover:bg-[#f3f5f7]'
-                    }`}
-                  >
-                    <span className="flex h-3.5 w-5 overflow-hidden rounded-[2px]" aria-hidden="true">
-                      <OptionFlag className="h-full w-full object-cover" />
-                    </span>
-                    <span>{option.label}</span>
-                  </button>
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => {
+                        i18n.changeLanguage(key)
+                        setLanguageOpen(false)
+                      }}
+                      className={`flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-sm transition-colors ${
+                        language === key
+                          ? 'bg-[#f3f5f7] text-primary'
+                          : 'text-[#444b55] hover:bg-[#f3f5f7]'
+                      }`}
+                    >
+                      <span className="flex h-3.5 w-5 overflow-hidden rounded-[2px]" aria-hidden="true">
+                        <OptionFlag className="h-full w-full object-cover" />
+                      </span>
+                      <span>{t(option.labelKey)}</span>
+                    </button>
                   )
                 })}
               </div>
             )}
           </div>
+
           <a
             href="mailto:lawfirmyar@gmail.com"
-            aria-label="Email YAR Law Firm"
+            aria-label={t('navbar.emailAria')}
             className="hidden sm:block"
           >
             <Mail className={`w-5 h-5 cursor-pointer ${scrolled ? 'text-primary' : 'text-white'}`} />
           </a>
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden cursor-pointer"
-          >
+
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden cursor-pointer">
             {mobileOpen ? (
               <X className={`w-6 h-6 ${scrolled ? 'text-primary' : 'text-white'}`} />
             ) : (
@@ -174,7 +159,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {mobileOpen && (
         <div className="md:hidden bg-white border-t border-border shadow-lg">
           <ul className="flex flex-col py-4">
@@ -182,13 +166,17 @@ export default function Navbar() {
               <li key={link.path}>
                 <Link
                   to={link.path}
+                  onClick={() => {
+                    setMobileOpen(false)
+                    setLanguageOpen(false)
+                  }}
                   className={`block px-6 py-3 text-sm font-medium ${
                     location.pathname === link.path
                       ? 'text-primary bg-light-gray'
                       : 'text-secondary hover:bg-light-gray'
                   }`}
                 >
-                  {link.label}
+                  {t(`navbar.links.${link.key}`)}
                 </Link>
               </li>
             ))}

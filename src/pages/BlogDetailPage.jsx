@@ -1,14 +1,20 @@
 import { useParams } from 'react-router-dom'
+import { useMemo } from 'react'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
-import { articles } from '../data/articles'
+import { getArticleBySlug } from '../data/articles'
 import CTASection from '../components/home/CTASection'
 import BlogDetailHeroSection from '../components/blog-detail/blogDetailHeroSection'
 import BlogDetailContentSection from '../components/blog-detail/blogDetailContentSection'
+import { useTranslation } from 'react-i18next'
 
 export default function BlogDetailPage() {
+  const { t, i18n } = useTranslation()
   const { slug } = useParams()
-  const article = articles.find((item) => item.slug === slug)
+  const article = useMemo(() => getArticleBySlug(slug, i18n.language), [slug, i18n.language])
+  const articleTitle = article ? article.title : t('pages.blogDetail.notFound')
+  const articleDate = article ? article.date : t('pages.blogDetail.na')
+  const articleAuthor = article ? article.author : t('pages.blogDetail.unknownAuthor')
 
   return (
     <>
@@ -20,13 +26,13 @@ export default function BlogDetailPage() {
             <div className="-mt-[135vh] mb-[25vh] h-screen relative z-[5] flex items-end pointer-events-none">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 w-full pointer-events-auto">
                 <p className="text-white/80 mt-4 max-w-2xl text-base md:text-md">
-                  Home | Blog | {article ? article.title : 'Article Not Found'}
+                  {t('pages.blog.breadcrumb')} | {articleTitle}
                 </p>
                 <h1 className="text-white text-4xl md:text-4xl lg:text-5xl font-light leading-tight max-w-7xl">
-                  {article ? article.title : 'Article Not Found'}
+                  {articleTitle}
                 </h1>
                 <p className="text-white/80 mt-4 max-w-2xl text-base md:text-md">
-                  {article ? article.date : 'N/A'} | {article ? article.author : 'Unknown Author'}
+                  {articleDate} | {articleAuthor}
                 </p>
               </div>
             </div>

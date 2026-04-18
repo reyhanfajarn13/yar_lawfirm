@@ -1,4 +1,5 @@
 import { Briefcase, BadgeDollarSign, Scale, Users } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const JOIN_TEAM_IMAGE = {
   src: 'https://ik.imagekit.io/mindwalker/yarlawfirm/about-us-asset/tingey-injury-law-firm.webp',
@@ -16,6 +17,9 @@ function Dots() {
 }
 
 export default function AttorneysJoinOurTeamSection() {
+  const { t } = useTranslation()
+  const benefits = t('attorneys.joinTeam.benefits', { returnObjects: true })
+
   return (
     <section className="py-8 md:py-10">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,7 +27,7 @@ export default function AttorneysJoinOurTeamSection() {
           <Dots />
 
           <h2 className="mt-4 text-2xl md:text-[2.1rem] font-medium leading-tight text-white">
-            Join Our Team
+            {t('attorneys.joinTeam.title')}
           </h2>
 
           <div className="mt-6 grid grid-cols-1 lg:grid-cols-[0.72fr_1fr] gap-6 md:gap-8 items-start">
@@ -40,29 +44,27 @@ export default function AttorneysJoinOurTeamSection() {
 
             <div>
               <p className="text-white/90 text-[1.03rem] leading-relaxed">
-                YAR Law Firm is always looking for talented legal professionals to join our team. We
-                offer a collaborative work environment, competitive benefits, and opportunities for
-                professional growth and development.
+                {t('attorneys.joinTeam.description')}
               </p>
 
-              <h3 className="mt-6 text-3xl font-medium text-white">Why Work With Us?</h3>
+              <h3 className="mt-6 text-3xl font-medium text-white">{t('attorneys.joinTeam.whyTitle')}</h3>
 
               <div className="mt-4 space-y-3">
                 <div className="flex items-center gap-3 text-white/95">
                   <Briefcase className="h-4 w-4 text-white" />
-                  <span>Professional Development</span>
+                  <span>{benefits[0]}</span>
                 </div>
                 <div className="flex items-center gap-3 text-white/95">
                   <BadgeDollarSign className="h-4 w-4 text-white" />
-                  <span>Competitive Compensation</span>
+                  <span>{benefits[1]}</span>
                 </div>
                 <div className="flex items-center gap-3 text-white/95">
                   <Scale className="h-4 w-4 text-white" />
-                  <span>Work-Life Balance</span>
+                  <span>{benefits[2]}</span>
                 </div>
                 <div className="flex items-center gap-3 text-white/95">
                   <Users className="h-4 w-4 text-white" />
-                  <span>Collaborative Environment</span>
+                  <span>{benefits[3]}</span>
                 </div>
               </div>
             </div>

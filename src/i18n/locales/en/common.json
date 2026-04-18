@@ -1,0 +1,244 @@
+﻿{
+  "navbar": {
+    "links": {
+      "home": "Home",
+      "about": "About Us",
+      "practiceAreas": "Practice Areas",
+      "attorneys": "Attorneys",
+      "blog": "Blog"
+    },
+    "language": {
+      "select": "Select language",
+      "indonesia": "Indonesia",
+      "english": "English"
+    },
+    "emailAria": "Email YAR Law Firm"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "practiceArea": "Practice Area",
+    "companyDescription": "YAR Law Firm, established in 2010, provides professional legal services for corporate and individual clients from consultation and contracts to dispute resolution. With a foundation of professionalism and integrity, we are trusted by many institutions and recognized as one of Hukumonline's Top 100 Indonesian Law Firms.",
+    "phoneVolta": "Volta: +62 878-7754-0196",
+    "phoneThareq": "Thareq: +62 858-0887-2026",
+    "workHours": "Monday - Friday: 9:00 AM - 5:00 PM",
+    "copyright": "(c) 2026 Law Firm Yar. All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "title": "Excellence in Every Legal Step",
+      "description": "Showcasing services such as litigation, business contracts, dispute resolution, and professional consultation.",
+      "learnMore": "Learn more"
+    },
+    "achievement": {
+      "title": "Achievement"
+    },
+    "article": {
+      "browseAll": "Browse all article"
+    },
+    "practiceArea": {
+      "title": "Our Practice Areas",
+      "description": "We offer comprehensive legal services across a wide range of practice areas to meet your specific needs.",
+      "learnMore": "Learn more"
+    },
+    "attorney": {
+      "title": "Our Expert Attorney",
+      "previous": "Previous attorney",
+      "next": "Next attorney"
+    },
+    "client": {
+      "title": "Trusted by Leading Clients",
+      "description": "We are proud to serve these distinguished clients"
+    }
+  },
+  "cta": {
+    "title": "Need Legal Assistance? Contact Us Today!",
+    "description": "Schedule a free consultation with our experienced attorneys to discuss your legal needs.",
+    "button": "Contact us now",
+    "whatsappMessage": "Hello, I would like to request a legal consultation with YAR Lawfirm. Please provide more information regarding the consultation procedure and schedule. Thank you."
+  },
+  "floatingWhatsapp": {
+    "ariaLabel": "Chat via WhatsApp",
+    "message": "Hello, I would like to request a legal consultation with YAR Lawfirm. Please provide more information regarding the consultation procedure and schedule. Thank you."
+  },
+  "pages": {
+    "about": {
+      "breadcrumb": "Home | About Us",
+      "title": "About Us",
+      "description": "Learn more about our firm, our legal philosophy, and the people behind every solution we deliver.",
+      "meetTeam": "Meet our team"
+    },
+    "practiceAreas": {
+      "breadcrumb": "Home | Practice Areas",
+      "title": "Practice Areas",
+      "description": "Learn more about our firm, our legal philosophy, and the people behind every solution we deliver.",
+      "meetTeam": "Meet our team"
+    },
+    "attorneys": {
+      "breadcrumb": "Home | Attorneys",
+      "title": "Our Attorneys",
+      "description": "Meet our team of experienced legal professionals dedicated to providing exceptional representation."
+    },
+    "blog": {
+      "breadcrumb": "Home | Blog",
+      "title": "Blog",
+      "description": "Legal insights, firm news, and expert advice from our experienced attorneys."
+    },
+    "practiceAreaDetail": {
+      "notFound": "Practice Area Not Found",
+      "support": "Expert legal support by our experienced team in {{name}}.",
+      "supportFallback": "Expert legal support by our experienced team in this practice area."
+    },
+    "attorneyDetail": {
+      "notFound": "Attorney Not Found",
+      "na": "N/A"
+    },
+    "blogDetail": {
+      "notFound": "Article Not Found",
+      "unknownAuthor": "Unknown Author",
+      "na": "N/A"
+    }
+  },
+  "blog": {
+    "articles": {
+      "admin": "Admin",
+      "readMore": "Read more"
+    },
+    "detail": {
+      "articleNotFound": "Article not found.",
+      "source": "Source:",
+      "legalConsultation": "Legal Consultation",
+      "consultationDesc": "Need legal assistance related to this topic? Contact us for a consultation.",
+      "form": {
+        "name": "Your Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "message": "Message",
+        "privacy": "I agree to the privacy policy",
+        "submit": "SUBMIT REQUEST",
+        "nameRequired": "Your Name is required.",
+        "messageRequired": "Message is required.",
+        "privacyRequired": "Please agree to the privacy policy.",
+        "namePlaceholder": "John Doe",
+        "emailPlaceholder": "John Doe",
+        "phonePlaceholder": "John Doe",
+        "messagePlaceholder": "I read your blog post \"{{title}}\" and would like to discuss this further.",
+        "whatsappGreeting": "Hello YAR Law Firm,",
+        "whatsappIntent": "I would like to request a consultation regarding: \"{{title}}\"",
+        "whatsappName": "Name: {{value}}",
+        "whatsappEmail": "Email: {{value}}",
+        "whatsappPhone": "Phone: {{value}}",
+        "whatsappMessage": "Message: {{value}}"
+      },
+      "practiceAreasTitle": "Practice Areas"
+    }
+  },
+  "practiceArea": {
+    "occupation": {
+      "title": "Our Practice Areas",
+      "description": "Lorem ipsum dolor sit amet consectetur. At dictumst vulputate dictum ut a non purus scelerisque."
+    },
+    "whyChoose": {
+      "title": "Why Choose Our Legal Service",
+      "description": "We are dedicated to providing exceptional legal representation",
+      "reasons": [
+        {
+          "title": "Experienced Attorneys",
+          "description": "Our team consists of highly skilled attorneys with extensive experience in their respective practice areas, ensuring expert handling of your legal matters."
+        },
+        {
+          "title": "Tailored Legal Solutions",
+          "description": "We understand that each client's situation is unique, and we develop customized strategies to address your specific legal needs and objectives."
+        },
+        {
+          "title": "Client-Centered Approach",
+          "description": "We prioritize our clients' interests and maintain open communication throughout the legal process, ensuring you're informed and involved every step of the way."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "description": "Common questions about our legal services and practice areas",
+      "items": [
+        {
+          "question": "What legal services are included in YAR Law Firm representation?",
+          "answer": "We handle commercial litigation, corporate crime matters, employment disputes, business activity assistance, construction matters, state administrative disputes, and bankruptcy/PKPU proceedings. Our service scope is tailored to each client's needs, whether corporate or individual."
+        },
+        {
+          "question": "Can I request an initial consultation before appointing legal counsel?",
+          "answer": "Yes. You can begin with an initial consultation to map legal issues, risks, and strategic options. After that, we will recommend next steps, including the proposed scope of representation and an estimated timeline."
+        },
+        {
+          "question": "What documents should I prepare for the first consultation?",
+          "answer": "Helpful documents include a short chronology, relevant contracts or agreements, correspondence, transaction records, and any official documents related to your issue. Our team will provide a more specific checklist after the initial assessment."
+        },
+        {
+          "question": "How long does a legal matter usually take to resolve?",
+          "answer": "The duration depends on the matter type, factual complexity, and dispute forum (negotiation, mediation, arbitration, or litigation). At the beginning of engagement, we prepare a working timeline so expectations remain clear."
+        },
+        {
+          "question": "Does YAR Law Firm represent both corporate and individual clients?",
+          "answer": "Yes. We represent both corporate and individual clients, including SMEs, national companies, and public entities. Our approach is adapted to each client's business profile, legal objective, and urgency level."
+        }
+      ]
+    },
+    "detail": {
+      "storyTitle": "Our Story",
+      "storyFallback": "Practice area details are not available yet.",
+      "helpTitle": "How Can We Help You",
+      "scheduleButton": "SCHEDULE A CONSULTATION",
+      "requestTitle": "Request a Consultation",
+      "requestDesc": "Share your legal issue with us and our team will contact you with a clear strategy tailored to your business and dispute context.",
+      "yourName": "Your Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "caseBrief": "Brief Description of Your Case",
+      "casePlaceholder": "Brief your legal issue here so we can better understand how to assist you.",
+      "privacy": "I agree to the privacy policy",
+      "submit": "SUBMIT REQUEST",
+      "expertiseTitle": "Our Expertise",
+      "defaultHelpList": [
+        "Personalized Legal Strategy",
+        "Clear Communication",
+        "Skilled Representation",
+        "Proven Results"
+      ],
+      "whatsappMessage": "Hello, I would like to request a legal consultation with YAR Lawfirm. Please provide more information regarding the consultation procedure and schedule. Thank you."
+    }
+  },
+  "attorneys": {
+    "people": {
+      "title": "Our Attorneys",
+      "showing": "Showing {{count}} attorney profile(s)."
+    },
+    "joinTeam": {
+      "title": "Join Our Team",
+      "description": "YAR Law Firm is always looking for talented legal professionals to join our team. We offer a collaborative work environment, competitive benefits, and opportunities for professional growth and development.",
+      "whyTitle": "Why Work With Us?",
+      "benefits": [
+        "Professional Development",
+        "Competitive Compensation",
+        "Work-Life Balance",
+        "Collaborative Environment"
+      ]
+    }
+  },
+  "attorneyDetail": {
+    "aboutMe": {
+      "title": "About Me",
+      "notFound": "Attorney not found"
+    },
+    "contact": {
+      "practiceAreasTitle": "Practice Areas",
+      "contactTitle": "Contact",
+      "scheduleButton": "SCHEDULE A CONSULTATION",
+      "whatsappMessage": "Hello, I would like to request a legal consultation with YAR Lawfirm. Please provide more information regarding the consultation procedure and schedule. Thank you."
+    },
+    "people": {
+      "title": "Meet Other Attorney",
+      "subtitle": "Our experienced attorneys are ready to help you",
+      "previous": "Previous attorney",
+      "next": "Next attorney"
+    }
+  }
+}
+

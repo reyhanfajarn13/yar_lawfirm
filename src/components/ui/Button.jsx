@@ -6,6 +6,7 @@ export default function Button({
   href,
   onClick,
   className = '',
+  ...restProps
 }) {
   const base = 'inline-flex items-center gap-2 px-6 py-3 text-sm font-medium transition-colors cursor-pointer'
 
@@ -20,7 +21,7 @@ export default function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} {...restProps}>
         {children}
         <ArrowRight className="w-4 h-4" />
       </a>
@@ -28,7 +29,7 @@ export default function Button({
   }
 
   return (
-    <button onClick={onClick} className={classes}>
+    <button onClick={onClick} className={classes} {...restProps}>
       {children}
       <ArrowRight className="w-4 h-4" />
     </button>

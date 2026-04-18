@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { attorneys } from '../../data/attorneys'
+import { useTranslation } from 'react-i18next'
 
 function Dots() {
   return (
@@ -13,6 +14,8 @@ function Dots() {
 }
 
 export default function AttorneysPeopleSection() {
+  const { t } = useTranslation()
+
   return (
     <section className="relative z-20 -mt-[170px] pb-8 md:-mt-[260px] md:pb-10">
       <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[170px] bg-[#e6eaee] md:top-[260px]" />
@@ -22,10 +25,10 @@ export default function AttorneysPeopleSection() {
           <Dots />
 
           <h2 className="mt-5 text-2xl md:text-[2.1rem] font-medium leading-tight text-[#2f343c]">
-            Our Attorneys
+            {t('attorneys.people.title')}
           </h2>
           <p className="mt-1 text-[#454a52] text-base">
-            Showing {attorneys.length} attorney profile(s).
+            {t('attorneys.people.showing', { count: attorneys.length })}
           </p>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-6">

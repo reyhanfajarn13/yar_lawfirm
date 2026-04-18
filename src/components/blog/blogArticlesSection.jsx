@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import { ArrowRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import 'swiper/css'
 
 import ArrowButton from '../ui/ArrowButton'
-import { articles } from '../../data/articles'
+import { getArticles } from '../../data/articles'
 
 const FALLBACK_IMAGE =
   'https://images.unsplash.com/photo-1453945619913-79ec89a82c51?w=1200&q=80'
@@ -28,15 +29,17 @@ function titlePreview(text, maxChars = 52) {
 }
 
 export default function BlogArticlesSection() {
+  const { t, i18n } = useTranslation()
   const swiperRef = useRef(null)
+  const localizedArticles = useMemo(() => getArticles(i18n.language), [i18n.language])
 
   const sortedArticles = useMemo(() => {
-    return [...articles].sort((a, b) => {
+    return [...localizedArticles].sort((a, b) => {
       const dateDiff = parseArticleDate(b.date) - parseArticleDate(a.date)
       if (dateDiff !== 0) return dateDiff
       return b.id - a.id
     })
-  }, [])
+  }, [localizedArticles])
 
   const handlePrev = () => {
     if (!swiperRef.current) return
@@ -93,7 +96,7 @@ export default function BlogArticlesSection() {
                     <div className="flex items-center gap-2 text-[0.72rem] text-[#555b64]">
                       <span>{article.date}</span>
                       <span className="text-[#d10010]">&middot;</span>
-                      <span>Admin</span>
+                      <span>{t('blog.articles.admin')}</span>
                     </div>
 
                     <h3 className="mt-3 text-[1.05rem] md:text-[1.12rem] font-medium leading-snug text-[#31363f]">
@@ -108,7 +111,7 @@ export default function BlogArticlesSection() {
                       to={`/blog/${article.slug}`}
                       className="mt-4 inline-flex items-center gap-2 text-sm text-[#2f343c] hover:text-[#8b0000] transition-colors"
                     >
-                      Read more
+                      {t('blog.articles.readMore')}
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   </div>

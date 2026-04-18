@@ -1,4 +1,5 @@
 import { Link as LinkIcon, Mail, ArrowRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 function Dots({ color = '#d10010' }) {
   return (
@@ -12,8 +13,9 @@ function Dots({ color = '#d10010' }) {
 
 export default function AttorneysDetailPracticeAreaContactSection({ attorney,
   phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '6287877540196',
-  message = 'Halo, saya ingin melakukan konsultasi hukum dengan YAR Lawfirm. Mohon informasi lebih lanjut mengenai prosedur dan jadwal konsultasinya. Terima kasih.',
  }) {
+  const { t } = useTranslation()
+  const message = t('attorneyDetail.contact.whatsappMessage')
   if (!attorney) return null
   const linkedin = attorney.contact?.linkedin?.trim() || '-'
   const email = attorney.contact?.email?.trim() || '-'
@@ -29,7 +31,7 @@ export default function AttorneysDetailPracticeAreaContactSection({ attorney,
           <article className="bg-[#ffffff] px-6 py-7 md:px-8 md:py-8 shadow-[0_8px_20px_rgba(15,23,42,0.08)]">
             <Dots />
             <h2 className="mt-4 text-2xl md:text-[2rem] font-medium leading-tight text-[#2f343c]">
-              Practice Areas
+              {t('attorneyDetail.contact.practiceAreasTitle')}
             </h2>
 
             <ul className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2.5">
@@ -44,7 +46,7 @@ export default function AttorneysDetailPracticeAreaContactSection({ attorney,
 
           <article className="bg-[#08264a] px-6 py-7 md:px-8 md:py-8 text-white shadow-[0_8px_20px_rgba(15,23,42,0.16)]">
             <Dots color="#ffffff" />
-            <h2 className="mt-4 text-2xl md:text-[2rem] font-medium leading-tight">Contact</h2>
+            <h2 className="mt-4 text-2xl md:text-[2rem] font-medium leading-tight">{t('attorneyDetail.contact.contactTitle')}</h2>
 
             <div className="mt-5 space-y-3">
               {linkedin === '-' ? (
@@ -86,7 +88,7 @@ export default function AttorneysDetailPracticeAreaContactSection({ attorney,
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center justify-center border border-white px-4 py-2 text-[0.7rem] font-semibold tracking-wide hover:bg-white hover:text-[#08264a] transition-colors"
             >
-              SCHEDULE A CONSULTATION
+              {t('attorneyDetail.contact.scheduleButton')}
             </a>
           </article>
         </div>
