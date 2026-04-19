@@ -1,5 +1,7 @@
+import { useMemo } from 'react'
 import { ShieldCheck, Star } from 'lucide-react'
-import { founder } from '../../data/founder'
+import { useTranslation } from 'react-i18next'
+import { getFounder } from '../../data/founder'
 
 function Dots() {
   return (
@@ -12,6 +14,9 @@ function Dots() {
 }
 
 export default function AboutFounderSection() {
+  const { i18n } = useTranslation()
+  const founder = useMemo(() => getFounder(i18n.language), [i18n.language])
+
   return (
     <section className="bg-[#e6eaee] py-8 md:py-10">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">

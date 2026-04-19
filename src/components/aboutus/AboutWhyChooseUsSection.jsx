@@ -1,4 +1,6 @@
-import { whyChooseUsItems } from '../../data/whyChooseUs'
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { getWhyChooseUsContent } from '../../data/whyChooseUs'
 
 function Dots() {
   return (
@@ -11,6 +13,9 @@ function Dots() {
 }
 
 export default function AboutWhyChooseUsSection() {
+  const { i18n } = useTranslation()
+  const whyChooseUsContent = useMemo(() => getWhyChooseUsContent(i18n.language), [i18n.language])
+
   return (
     <section className="relative overflow-hidden bg-[#e6eaee] pt-5 md:pt-5">
 
@@ -19,14 +24,14 @@ export default function AboutWhyChooseUsSection() {
           <Dots />
 
           <h2 className="mt-5 text-4xl md:text-[3rem] font-medium leading-tight text-white">
-            Why Choose Us?
+            {whyChooseUsContent.title}
           </h2>
           <p className="mt-3 text-white/80 text-[1.05rem]">
-            Reasons to trust us with your legal matters
+            {whyChooseUsContent.description}
           </p>
 
           <div className="mt-9 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {whyChooseUsItems.map((item) => (
+            {whyChooseUsContent.items.map((item) => (
               <article key={item.id} className="relative min-h-[280px] overflow-hidden group">
                 <img
                   src={item.image}

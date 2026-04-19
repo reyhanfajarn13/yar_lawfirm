@@ -1,13 +1,16 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import 'swiper/css'
 
 import { attorneys } from '../../data/attorneys'
 
 export default function AttorneySection() {
   const swiperRef = useRef(null)
+  const { i18n } = useTranslation()
+  const isEnglish = i18n.language.startsWith('en')
 
   return (
     <section className="relative overflow-hidden">
@@ -16,17 +19,17 @@ export default function AttorneySection() {
           <div className="mb-8 flex items-center justify-between md:mb-10">
             <div>
               <h2 className="text-2xl font-light leading-tight text-[#2e3239] md:text-[2.0rem]">
-                Meet Our Team
+                {isEnglish ? 'Meet Our Team' : 'Temui Tim Kami'}
               </h2>
               <div className="mt-3 text-[#373d45] text-[1.05rem] leading-relaxed">
-                <p>Our experienced attorneys are ready to help you</p>
+                <p>{isEnglish ? 'Our experienced attorneys are ready to help you' : 'Tim pengacara berpengalaman kami siap membantu Anda'}</p>
               </div>
             </div>
 
             <div className="flex gap-3">
               <button
                 type="button"
-                aria-label="Previous attorney"
+                aria-label={isEnglish ? 'Previous attorney' : 'Pengacara sebelumnya'}
                 onClick={() => swiperRef.current?.slidePrev()}
                 className="flex h-12 w-12 items-center justify-center border border-[#383d44] text-[#30353c] transition-colors hover:bg-[#30353c] hover:text-white"
               >
@@ -34,7 +37,7 @@ export default function AttorneySection() {
               </button>
               <button
                 type="button"
-                aria-label="Next attorney"
+                aria-label={isEnglish ? 'Next attorney' : 'Pengacara berikutnya'}
                 onClick={() => swiperRef.current?.slideNext()}
                 className="flex h-12 w-12 items-center justify-center border border-[#383d44] text-[#30353c] transition-colors hover:bg-[#30353c] hover:text-white"
               >

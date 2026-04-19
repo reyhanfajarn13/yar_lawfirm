@@ -1,6 +1,7 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { practiceAreas } from '../../data/practiceAreas'
+import { getPracticeAreas } from '../../data/practiceAreas'
 import { useTranslation } from 'react-i18next'
 
 function crop(text, maxChars) {
@@ -19,7 +20,8 @@ function Dots() {
 }
 
 export default function PracticeAreaOccupationSection() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const practiceAreas = useMemo(() => getPracticeAreas(i18n.language), [i18n.language])
 
   return (
     <section className="relative z-20 -mt-[170px] pb-8 md:-mt-[260px] md:pb-10">

@@ -1,9 +1,10 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 import { IoLogoWhatsapp, IoLogoInstagram, IoLogoLinkedin } from 'react-icons/io'
 import { useTranslation } from 'react-i18next'
 import redIconYarlaw from '../../assets/icons/red-icon-yarlaw.png'
-import { practiceAreas } from '../../data/practiceAreas'
+import { getPracticeAreas } from '../../data/practiceAreas'
 
 const quickLinks = [
   { key: 'home', path: '/' },
@@ -22,14 +23,18 @@ const practiceAreaFooterSlugs = [
   'employment-dispute',
 ]
 
-const practiceAreaLinks = practiceAreaFooterSlugs
-  .map((slug) => practiceAreas.find((area) => area.slug === slug))
-  .filter(Boolean)
-
 export default function Footer({
   phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '6287877540196',
 }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const practiceAreas = useMemo(() => getPracticeAreas(i18n.language), [i18n.language])
+  const practiceAreaLinks = useMemo(
+    () =>
+      practiceAreaFooterSlugs
+        .map((slug) => practiceAreas.find((area) => area.slug === slug))
+        .filter(Boolean),
+    [practiceAreas]
+  )
 
   const cleanedNumber = String(phoneNumber).replace(/[^\d]/g, '')
   const waMessage = t('cta.whatsappMessage')

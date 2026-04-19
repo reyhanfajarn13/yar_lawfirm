@@ -1,12 +1,14 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import SectionLabel from '../ui/SectionLabel'
 import Button from '../ui/Button'
-import { practiceAreas } from '../../data/practiceAreas'
+import { getPracticeAreas } from '../../data/practiceAreas'
 import { useTranslation } from 'react-i18next'
 
 export default function PracticeAreaSection() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const practiceAreas = useMemo(() => getPracticeAreas(i18n.language), [i18n.language])
 
   return (
     <section className="py-16 md:py-20 bg-[#303030]">

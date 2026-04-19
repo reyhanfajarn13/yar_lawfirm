@@ -1,17 +1,18 @@
-﻿import { useParams } from 'react-router-dom'
+﻿import { useMemo } from 'react'
+import { useParams } from 'react-router-dom'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import CTASection from '../components/home/CTASection'
 import PracticeAreaDetailHeroSection from '../components/practicearea-detail/practiceAreaDetailHeroSection'
 import PracticeAreaDetailContentSection from '../components/practicearea-detail/practiceAreaDetailContentSection'
 import PracticeAreaDetailPeopleSection from '../components/practicearea-detail/practiceAreaDetailPeopleSection'
-import { practiceAreas } from '../data/practiceAreas'
+import { getPracticeAreaBySlug } from '../data/practiceAreas'
 import { useTranslation } from 'react-i18next'
 
 export default function PracticeAreaDetailPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { slug } = useParams()
-  const practiceArea = practiceAreas.find((item) => item.slug === slug)
+  const practiceArea = useMemo(() => getPracticeAreaBySlug(slug, i18n.language), [slug, i18n.language])
   const practiceAreaName = practiceArea?.name || t('pages.practiceAreaDetail.notFound')
 
   return (

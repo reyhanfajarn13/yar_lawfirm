@@ -1,6 +1,7 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { practiceAreas } from '../../data/practiceAreas'
+import { getPracticeAreas } from '../../data/practiceAreas'
 import { useTranslation } from 'react-i18next'
 
 function Dots() {
@@ -16,7 +17,8 @@ function Dots() {
 export default function PracticeAreaDetailContentSection({ practiceArea,
   phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '6287877540196',
  }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const practiceAreas = useMemo(() => getPracticeAreas(i18n.language), [i18n.language])
   const message = t('practiceArea.detail.whatsappMessage')
   const defaultHelpList = t('practiceArea.detail.defaultHelpList', { returnObjects: true })
 

@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import { useMemo } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import { ArrowRight } from 'lucide-react'
@@ -6,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 import 'swiper/css'
 
 import ArrowButton from '../ui/ArrowButton'
-import { achievements } from '../../data/achievements'
+import { getAchievements } from '../../data/achievements'
 
 const TEXT_W = 280
 const IMG_W = 420
@@ -16,7 +17,8 @@ const NORMAL_SLIDE_SPEED = 600
 const REWIND_SPEED = 220
 
 export default function AchievementSection() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const achievements = useMemo(() => getAchievements(i18n.language), [i18n.language])
   const swiperRef = useRef(null)
   const rewindTimerRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(FIRST_SLIDE_INDEX)

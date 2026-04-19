@@ -1,5 +1,6 @@
 import { Link as LinkIcon, Mail, ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { getLocalizedAttorneyPracticeAreas } from '../../data/attorneyLocale'
 
 function Dots({ color = '#d10010' }) {
   return (
@@ -14,9 +15,10 @@ function Dots({ color = '#d10010' }) {
 export default function AttorneysDetailPracticeAreaContactSection({ attorney,
   phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '6287877540196',
  }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const message = t('attorneyDetail.contact.whatsappMessage')
   if (!attorney) return null
+  const localizedPracticeAreas = getLocalizedAttorneyPracticeAreas(attorney['practice-areas'] || [], i18n.language)
   const linkedin = attorney.contact?.linkedin?.trim() || '-'
   const email = attorney.contact?.email?.trim() || '-'
 
@@ -35,7 +37,7 @@ export default function AttorneysDetailPracticeAreaContactSection({ attorney,
             </h2>
 
             <ul className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2.5">
-              {attorney['practice-areas']?.map((area) => (
+              {localizedPracticeAreas.map((area) => (
                 <li key={area} className="flex items-start gap-2 text-[#3d424a] text-sm md:text-[0.98rem]">
                   <ArrowRight className="h-4 w-4 mt-[2px] text-[#8b0000] flex-shrink-0" />
                   <span>{area}</span>

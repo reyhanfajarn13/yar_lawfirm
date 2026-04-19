@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { practiceAreas } from '../../data/practiceAreas'
+import { getPracticeAreas } from '../../data/practiceAreas'
 import { useTranslation } from 'react-i18next'
 
 const FALLBACK_IMAGE =
@@ -19,7 +19,8 @@ function Dots() {
 }
 
 export default function BlogDetailContentSection({ article }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const practiceAreas = useMemo(() => getPracticeAreas(i18n.language), [i18n.language])
   const [formData, setFormData] = useState({
     name: '',
     email: '',

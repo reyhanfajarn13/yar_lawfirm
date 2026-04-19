@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { getLocalizedAttorneyAboutMe } from '../../data/attorneyLocale'
 
 function Dots() {
   return (
@@ -11,7 +12,7 @@ function Dots() {
 }
 
 export default function AttorneysDetailAboutMeSection({ attorney }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   if (!attorney) {
     return (
@@ -39,7 +40,7 @@ export default function AttorneysDetailAboutMeSection({ attorney }) {
           </h2>
 
           <p className="mt-4 text-[0.98rem] md:text-[1.03rem] leading-relaxed text-[#3d424a] max-w-6xl">
-            {attorney["about-me"]}
+            {getLocalizedAttorneyAboutMe(attorney, i18n.language)}
           </p>
         </article>
       </div>
