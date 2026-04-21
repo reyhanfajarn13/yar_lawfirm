@@ -202,7 +202,23 @@
         "Representasi yang Andal",
         "Hasil yang Terbukti"
       ],
-      "whatsappMessage": "Halo, saya ingin melakukan konsultasi hukum dengan YAR Lawfirm. Mohon informasi lebih lanjut mengenai prosedur dan jadwal konsultasinya. Terima kasih."
+      "whatsappMessage": "Halo, saya ingin melakukan konsultasi hukum dengan YAR Lawfirm. Mohon informasi lebih lanjut mengenai prosedur dan jadwal konsultasinya. Terima kasih.",
+      "form": {
+        "namePlaceholder": "John Doe",
+        "emailPlaceholder": "John Doe",
+        "phonePlaceholder": "John Doe",
+        "nameRequired": "Nama wajib diisi.",
+        "emailRequired": "Email wajib diisi.",
+        "phoneRequired": "Nomor telepon wajib diisi.",
+        "caseRequired": "Deskripsi kasus wajib diisi.",
+        "privacyRequired": "Mohon setujui kebijakan privasi.",
+        "whatsappGreeting": "Halo YAR Law Firm,",
+        "whatsappIntent": "Saya ingin mengajukan konsultasi untuk area praktik: \"{{practiceArea}}\".",
+        "whatsappName": "Nama: {{value}}",
+        "whatsappEmail": "Email: {{value}}",
+        "whatsappPhone": "Telepon: {{value}}",
+        "whatsappCase": "Deskripsi kasus: {{value}}"
+      }
     }
   },
   "attorneys": {

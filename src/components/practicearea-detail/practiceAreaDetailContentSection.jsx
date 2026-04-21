@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { getPracticeAreas } from '../../data/practiceAreas'
@@ -21,6 +21,20 @@ export default function PracticeAreaDetailContentSection({ practiceArea,
   const practiceAreas = useMemo(() => getPracticeAreas(i18n.language), [i18n.language])
   const message = t('practiceArea.detail.whatsappMessage')
   const defaultHelpList = t('practiceArea.detail.defaultHelpList', { returnObjects: true })
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    caseBrief: '',
+    privacyAccepted: false,
+  })
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    caseBrief: '',
+    privacyAccepted: '',
+  })
 
   const helpItems = practiceArea?.howWeCanHelpYou?.length
     ? practiceArea.howWeCanHelpYou
@@ -28,6 +42,56 @@ export default function PracticeAreaDetailContentSection({ practiceArea,
    
   const cleanedNumber = String(phoneNumber).replace(/[^\d]/g, '')
   const href = `https://wa.me/${cleanedNumber}?text=${encodeURIComponent(message)}`
+  const handleFieldChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }))
+    setErrors((prev) => ({ ...prev, [field]: '' }))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    const nextErrors = {
+      name: '',
+      email: '',
+      phone: '',
+      caseBrief: '',
+      privacyAccepted: '',
+    }
+
+    if (!formData.name.trim()) nextErrors.name = t('practiceArea.detail.form.nameRequired')
+    if (!formData.email.trim()) nextErrors.email = t('practiceArea.detail.form.emailRequired')
+    if (!formData.phone.trim()) nextErrors.phone = t('practiceArea.detail.form.phoneRequired')
+    if (!formData.caseBrief.trim()) nextErrors.caseBrief = t('practiceArea.detail.form.caseRequired')
+    if (!formData.privacyAccepted) {
+      nextErrors.privacyAccepted = t('practiceArea.detail.form.privacyRequired')
+    }
+
+    setErrors(nextErrors)
+    if (
+      nextErrors.name ||
+      nextErrors.email ||
+      nextErrors.phone ||
+      nextErrors.caseBrief ||
+      nextErrors.privacyAccepted
+    ) {
+      return
+    }
+
+    const whatsappMessage = [
+      t('practiceArea.detail.form.whatsappGreeting'),
+      t('practiceArea.detail.form.whatsappIntent', {
+        practiceArea: practiceArea?.name || t('pages.practiceAreaDetail.notFound'),
+      }),
+      '',
+      t('practiceArea.detail.form.whatsappName', { value: formData.name.trim() }),
+      t('practiceArea.detail.form.whatsappEmail', { value: formData.email.trim() }),
+      t('practiceArea.detail.form.whatsappPhone', { value: formData.phone.trim() }),
+      t('practiceArea.detail.form.whatsappCase', { value: formData.caseBrief.trim() }),
+    ].join('\n')
+
+    const submitHref = `https://wa.me/${cleanedNumber}?text=${encodeURIComponent(whatsappMessage)}`
+    window.open(submitHref, '_blank', 'noopener,noreferrer')
+  }
 
   return (
     <section className="relative z-20 -mt-[6rem] pb-10 md:-mt-[7.5rem] md:pb-12">
@@ -81,32 +145,47 @@ export default function PracticeAreaDetailContentSection({ practiceArea,
               {t('practiceArea.detail.requestDesc')}
             </p>
 
-            <form className="mt-5">
+            <form className="mt-5" onSubmit={handleSubmit} noValidate>
               <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-4">
                 <div className="space-y-3.5">
                   <div>
                     <label className="mb-1 block text-[0.75rem] font-semibold text-[#2f343c]">{t('practiceArea.detail.yourName')}</label>
                     <input
                       type="text"
-                      placeholder="John Doe"
-                      className="w-full border border-[#cfd6de] bg-[#f3f5f7] px-3 py-2 text-sm outline-none focus:border-[#8b0000]"
+                      value={formData.name}
+                      onChange={(e) => handleFieldChange('name', e.target.value)}
+                      placeholder={t('practiceArea.detail.form.namePlaceholder')}
+                      className={`w-full border bg-[#f3f5f7] px-3 py-2 text-sm outline-none focus:border-[#8b0000] ${
+                        errors.name ? 'border-[#b00020]' : 'border-[#cfd6de]'
+                      }`}
                     />
+                    {errors.name && <p className="mt-1 text-xs text-[#b00020]">{errors.name}</p>}
                   </div>
                   <div>
                     <label className="mb-1 block text-[0.75rem] font-semibold text-[#2f343c]">{t('practiceArea.detail.email')}</label>
                     <input
                       type="email"
-                      placeholder="John Doe"
-                      className="w-full border border-[#cfd6de] bg-[#f3f5f7] px-3 py-2 text-sm outline-none focus:border-[#8b0000]"
+                      value={formData.email}
+                      onChange={(e) => handleFieldChange('email', e.target.value)}
+                      placeholder={t('practiceArea.detail.form.emailPlaceholder')}
+                      className={`w-full border bg-[#f3f5f7] px-3 py-2 text-sm outline-none focus:border-[#8b0000] ${
+                        errors.email ? 'border-[#b00020]' : 'border-[#cfd6de]'
+                      }`}
                     />
+                    {errors.email && <p className="mt-1 text-xs text-[#b00020]">{errors.email}</p>}
                   </div>
                   <div>
                     <label className="mb-1 block text-[0.75rem] font-semibold text-[#2f343c]">{t('practiceArea.detail.phone')}</label>
                     <input
                       type="text"
-                      placeholder="John Doe"
-                      className="w-full border border-[#cfd6de] bg-[#f3f5f7] px-3 py-2 text-sm outline-none focus:border-[#8b0000]"
+                      value={formData.phone}
+                      onChange={(e) => handleFieldChange('phone', e.target.value)}
+                      placeholder={t('practiceArea.detail.form.phonePlaceholder')}
+                      className={`w-full border bg-[#f3f5f7] px-3 py-2 text-sm outline-none focus:border-[#8b0000] ${
+                        errors.phone ? 'border-[#b00020]' : 'border-[#cfd6de]'
+                      }`}
                     />
+                    {errors.phone && <p className="mt-1 text-xs text-[#b00020]">{errors.phone}</p>}
                   </div>
                 </div>
 
@@ -116,20 +195,33 @@ export default function PracticeAreaDetailContentSection({ practiceArea,
                   </label>
                   <textarea
                     rows={8}
+                    value={formData.caseBrief}
+                    onChange={(e) => handleFieldChange('caseBrief', e.target.value)}
                     placeholder={t('practiceArea.detail.casePlaceholder')}
-                    className="h-full min-h-[11.6rem] w-full border border-[#cfd6de] bg-[#f3f5f7] px-3 py-2 text-sm outline-none resize-none focus:border-[#8b0000]"
+                    className={`h-full min-h-[11.6rem] w-full border bg-[#f3f5f7] px-3 py-2 text-sm outline-none resize-none focus:border-[#8b0000] ${
+                      errors.caseBrief ? 'border-[#b00020]' : 'border-[#cfd6de]'
+                    }`}
                   />
+                  {errors.caseBrief && <p className="mt-1 text-xs text-[#b00020]">{errors.caseBrief}</p>}
                 </div>
               </div>
 
               <label className="mt-4 inline-flex items-center gap-2 text-sm text-[#2f343c]">
-                <input type="checkbox" defaultChecked className="accent-[#8b0000]" />
+                <input
+                  type="checkbox"
+                  checked={formData.privacyAccepted}
+                  onChange={(e) => handleFieldChange('privacyAccepted', e.target.checked)}
+                  className="accent-[#8b0000]"
+                />
                 <span>{t('practiceArea.detail.privacy')}</span>
               </label>
+              {errors.privacyAccepted && (
+                <p className="mt-1 text-xs text-[#b00020]">{errors.privacyAccepted}</p>
+              )}
 
               <div className="mt-4">
                 <button
-                  type="button"
+                  type="submit"
                   className="inline-flex items-center justify-center border border-[#8b0000] bg-transparent px-4 py-2 text-[0.7rem] font-semibold tracking-wide text-[#8b0000] hover:bg-[#8b0000] hover:text-white transition-colors"
                 >
                   {t('practiceArea.detail.submit')}

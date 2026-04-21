@@ -202,7 +202,23 @@
         "Skilled Representation",
         "Proven Results"
       ],
-      "whatsappMessage": "Hello, I would like to request a legal consultation with YAR Lawfirm. Please provide more information regarding the consultation procedure and schedule. Thank you."
+      "whatsappMessage": "Hello, I would like to request a legal consultation with YAR Lawfirm. Please provide more information regarding the consultation procedure and schedule. Thank you.",
+      "form": {
+        "namePlaceholder": "John Doe",
+        "emailPlaceholder": "John Doe",
+        "phonePlaceholder": "John Doe",
+        "nameRequired": "Name is required.",
+        "emailRequired": "Email is required.",
+        "phoneRequired": "Phone number is required.",
+        "caseRequired": "Case brief is required.",
+        "privacyRequired": "Please agree to the privacy policy.",
+        "whatsappGreeting": "Hello YAR Law Firm,",
+        "whatsappIntent": "I would like to request a consultation for practice area: \"{{practiceArea}}\".",
+        "whatsappName": "Name: {{value}}",
+        "whatsappEmail": "Email: {{value}}",
+        "whatsappPhone": "Phone: {{value}}",
+        "whatsappCase": "Case brief: {{value}}"
+      }
     }
   },
   "attorneys": {

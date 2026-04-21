@@ -11,7 +11,8 @@ import Footer from '../components/layout/Footer'
 import { useTranslation } from 'react-i18next'
 
 export default function HomePage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const isEnglish = i18n.language.startsWith('en')
 
   return (
     <>
@@ -25,7 +26,11 @@ export default function HomePage() {
       {/* Hero Content — normal flow, overlay di atas hero bg, hilang saat di-scroll */}
       <div className="-mt-[115vh] mb-[15vh] h-screen relative z-[5] flex items-end pointer-events-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 w-full pointer-events-auto">
-          <h1 className="text-white text-7xl md:text-6xl lg:text-7xl font-extrabold leading-tight max-w-xl">
+          <h1
+            className={`text-white text-7xl md:text-6xl lg:text-7xl font-extrabold leading-tight ${
+              isEnglish ? 'max-w-xl' : 'max-w-2xl'
+            }`}
+          >
             {t('home.hero.title')}
           </h1>
           <p className="text-white/80 mt-4 max-w-lg text-base md:text-lg">
