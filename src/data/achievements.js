@@ -4,7 +4,7 @@
     title: 'Jelang Hukumonline Legal Clinic Awards 2025, Intip Bocoran Nominasinya!',
     description:
       'Kami berhasil meraih penghargaan bergengsi sebagai mitra klinik terbaik dalam bidang arbitrase internasional dan alternatif penyelesaian sengketa selama tiga tahun berturut-turut.',
-    image: 'https://lawfirmyar.id/storage/galleries/SbK3dGVOvXid3XvO5UWPbgywFg52xoDuHUvZiqTq.webp',
+    image: 'https://ik.imagekit.io/mindwalker/yarlawfirm/Articles-Asset/achievement-legal-clinic-2025.webp',
     'source-link': 'https://www.hukumonline.com/berita/a/jelang-hukumonline-legal-clinic-awards-2025--intip-bocoran-nominasinya-lt69268c4ca4ef9/?page=2',
   },
   {
@@ -12,7 +12,7 @@
     title: 'Penghargaan Mitra Klinik Terbaik Spesialisasi Kepailitan dan PKPU',
     description:
       'Diakui sebagai firma hukum terdepan dalam penanganan kasus kepailitan dan penundaan kewajiban pembayaran utang di tingkat nasional.',
-    image: 'https://lawfirmyar.id/storage/galleries/JArpozDnIxDudfoEsAjBV3RrR75VsW1vDiYNH43f.webp',
+    image: 'https://ik.imagekit.io/mindwalker/yarlawfirm/Articles-Asset/penghargaan-mitra-klinik-terbaik.webp',
     'source-link': 'https://awards.hukumonline.com/legal-clinic-awards-2025',
   },
   {
@@ -20,7 +20,7 @@
     title: 'Penghargaan Golden Alumni 2025',
     description:
       'Penghargaan bergengsi yang diberikan kepada alumni terbaik dari Fakultas Hukum Universitas Brawijaya atas kontribusi luar biasa dalam bidang hukum dan pelayanan masyarakat.',
-    image: 'https://lawfirmyar.id/storage/galleries/CCWtFxWA3XwTrnMBVTpqGKVPM7zhK9eGQtTR5wHI.webp',
+    image: 'https://ik.imagekit.io/mindwalker/yarlawfirm/Articles-Asset/penghargaan-golden-alumni.webp',
     'source-link': 'https://awards.hukumonline.com/golden-alumni-2025?u=fakultas-hukum-universitas-brawijaya',
   },
   {
@@ -28,7 +28,7 @@
     title: 'Peringkat 64 Midsize Full Service 2024 dan Peringkat 145 Indonesia Law Firms 2025',
     description:
       'Diakui sebagai salah satu firma hukum terbaik di Indonesia dengan peringkat 64 dalam kategori Midsize Full Service pada tahun 2024 dan peringkat 145 dalam kategori Indonesia Law Firms pada tahun 2025.',
-    image: 'https://lawfirmyar.id/storage/galleries/hO4grPgDfkX6N9GrQAyNOrG08yMFa8qhKHa5xpun.webp',
+    image: 'https://ik.imagekit.io/mindwalker/yarlawfirm/Articles-Asset/peringkat-64-mid-size-full-service-2024.webp',
     'source-link': 'https://awards.hukumonline.com/top-100-law-firms-2025/top-100-indonesian-law-firms-2025/yar-law-firm',
   },
   {
@@ -36,7 +36,7 @@
     title: 'Peringkat 164 Top Indonesian Law Firms 2024 dan Peringkat 79 Midsize Service Law Firms 2024',
     description:
       'Diakui sebagai salah satu firma hukum terbaik di Indonesia dengan peringkat 164 dalam kategori Top Indonesian Law Firms pada tahun 2024 dan peringkat 79 dalam kategori Midsize Service Law Firms pada tahun 2024.',
-    image: 'https://lawfirmyar.id/storage/galleries/dPR5xat7bwsVTBgk5TK7dISLZXoXyYvr5NhU9SMr.webp',
+    image: 'https://ik.imagekit.io/mindwalker/yarlawfirm/Articles-Asset/peringkat-164-top-indonesia-law-firm.webp',
     'source-link': 'https://awards.hukumonline.com/top-100-law-firms-2024/yar-law-firm',
   },
   {
@@ -44,7 +44,7 @@
     title: 'Peringkat 157 Top Indonesian Law Firms 2023',
     description:
       'Diakui sebagai salah satu firma hukum terbaik di Indonesia dengan peringkat 157 dalam kategori Top Indonesian Law Firms pada tahun 2023.',
-    image: 'https://lawfirmyar.id/storage/galleries/dPR5xat7bwsVTBgk5TK7dISLZXoXyYvr5NhU9SMr.webp',
+    image: 'https://ik.imagekit.io/mindwalker/yarlawfirm/Articles-Asset/Peringkat-157-Top-firm.webp',
     'source-link': 'https://awards.hukumonline.com/top-100-law-firms-2023',
   },
 ]

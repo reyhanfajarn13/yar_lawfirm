@@ -37,7 +37,7 @@ const baseArticles = [
     title: 'Cerita Sukses Berkarier di Kantor Hukum Ternama, From A to Z',
     excerpt:
       'Salah satu impian yang diidamkan bagi lulusan fakultas hukum adalah profesi advokat (lawyer). Untuk membangun karier sebagai lawyer pada sebuah kantor hukum, biasanya bermula dari magang atau trainee associate.',
-    image: 'https://lawfirmyar.id/storage/blog/WHXqRcnQffDuDlWjbt1YjbjcC03fyELfrzxax3iZ.webp',
+    image: 'https://ik.imagekit.io/mindwalker/yarlawfirm/Articles-Asset/cerita-sukses-berkarir-di-kantor-hukum-ternama.webp',
     size: 'medium',
   },
   {
@@ -50,7 +50,7 @@ const baseArticles = [
     title: 'Apakah Pemberian Parsel Termasuk Gratifikasi?',
     excerpt:
       'Menurut Penjelasan Pasal 12B ayat (1) UU 20/2001, yang dimaksud dengan gratifikasi adalah pemberian dalam arti luas yakni sebuah pemberian uang, barang, rabat atau diskon, komisi, pinjaman tanpa bunga, tiket perjalanan, fasilitas penginapan, perjalanan wisata, pengobatan cuma-cuma, dan fasilitas lainnya.',
-    image: 'https://lawfirmyar.id/storage/galleries/cAjPrx9C2bN8jvnVmXcZ1ItpJwlRKnLSRDt72pmE.webp',
+    image: 'https://ik.imagekit.io/mindwalker/yarlawfirm/Articles-Asset/apakah-pemberian-parsel-termasuk-gratifikasi.webp',
     size: 'small',
   },
   {
@@ -63,7 +63,7 @@ const baseArticles = [
     title: 'Prosedur Pemeriksaan Keberatan atas Putusan KPPU di Pengadilan Niaga',
     excerpt:
       'Menjawab pertanyaan Anda terkait dengan hukum acara atau prosedur keberatan atas putusan KPPU, hal ini telah diatur di dalam Perma 3/2021.',
-    image: 'https://lawfirmyar.id/storage/galleries/3vye1OCoPaPo2Xg6baDYUroSeJysA4DGaQ1LSc8n.webp',
+    image: 'https://ik.imagekit.io/mindwalker/yarlawfirm/Articles-Asset/prosedur-pemeriksaan-keberatan-putusan-KPPU.webp',
     size: 'medium',
   },
   {
@@ -76,7 +76,7 @@ const baseArticles = [
     title: 'Ganti Direksi, Kepada Siapa Utang PT Bisa Ditagih?',
     excerpt:
       'Perjanjian yang dibuat dan diatasnamakan H selaku direktur perseroan terbatas (PT) A sebelum diberhentikan pada prinsipnya telah sesuai dengan ketentuan dalam UU PT.',
-    image: 'https://lawfirmyar.id/storage/galleries/5WDur4ZJT56JzlPSAFv7pKk5dYEvmFZmajqaDMwu.webp',
+    image: 'https://ik.imagekit.io/mindwalker/yarlawfirm/Articles-Asset/ganti-direksi-kepada-siapa-utang-pt-bisa-ditagih.webp',
     size: 'medium',
   },
   {
@@ -89,7 +89,7 @@ const baseArticles = [
     title: 'Cara Mengajukan Permohonan Eksekusi Putusan Arbitrase',
     excerpt:
       'Definisi arbitrase menurut Pasal 1 angka 1 UU AAPS adalah cara penyelesaian suatu sengketa perdata di luar peradilan umum yang didasarkan pada perjanjian arbitrase yang dibuat secara tertulis oleh para pihak yang bersengketa.',
-    image: 'https://lawfirmyar.id/storage/galleries/KsHOcwbi96FTVdIxox0RTGX5jpm3Rs8UwNNW8X7B.webp',
+    image: 'https://ik.imagekit.io/mindwalker/yarlawfirm/Articles-Asset/cara%20-mengajukan-permohonan-eksekusi-putusan-arbitrase.webp',
     size: 'small',
   },
   {
@@ -102,7 +102,7 @@ const baseArticles = [
     title: 'Prosedur Akuisisi Perusahaan yang Pailit',
     excerpt:
       'Akuisisi ini dilakukan dengan cara pengambilalihan saham yang telah dikeluarkan dan/atau akan dikeluarkan oleh perseroan melalui direksi atau langsung dari pemegang saham.',
-    image: 'https://lawfirmyar.id/storage/galleries/ervdu2qyGHydprhYedGoxFJ2qokRT4cvtBialas1.webp',
+    image: 'https://ik.imagekit.io/mindwalker/yarlawfirm/Articles-Asset/Prosedur-akuisisi-pailit.webp',
     size: 'large',
   },
   {
@@ -115,7 +115,7 @@ const baseArticles = [
     title: 'Apa Saja Hak-Hak Kreditur dalam Kepailitan?',
     excerpt:
       'Secara singkat, kreditur preferen adalah kreditur yang menurut undang-undang harus didahulukan pembayaran piutangnya, seperti pemegang privilege, pemegang hak retensi, dan sebagainya.',
-    image: 'https://lawfirmyar.id/storage/galleries/HPOA6k3KBsW5QksTJJCUUVENsNKXeKjxmParBSkr.webp',
+    image: 'https://ik.imagekit.io/mindwalker/yarlawfirm/Articles-Asset/Apa-saja-hak-hak-kreditur-dalam-kepailitan.webp',
     size: 'medium',
   },
   {
